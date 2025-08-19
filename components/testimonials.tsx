@@ -27,7 +27,7 @@ export default function Testimonials() {
   const t = testimonials[index]
 
   return (
-    <section ref={root} className="py-16 bg-[#F8FAFC]">
+    <section ref={root} className="py-16 bg-[#ebf3d5]">
       <div className="container px-6 mx-auto">
         <h2 className="text-3xl md:text-4xl font-[var(--font-bebas)] tracking-wide text-[#0A192F]">Testimonials</h2>
         <div className="mt-8 max-w-3xl">

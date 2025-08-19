@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     images: ["/sun-security-logo.png"],
   },
   metadataBase: new URL("https://www.sunsecurityservices.org"),
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -117,7 +117,7 @@ html {
         `}</style>
       </head>
       <body
-        className={`${bebas.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} ${robotoSlab.variable} ${montserrat.variable} font-sans antialiased`}
+        className={`${bebas.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} ${robotoSlab.variable} ${montserrat.variable} font-sans antialiased bg-[#F5F5DC]/20`}
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}

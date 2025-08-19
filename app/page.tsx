@@ -22,7 +22,7 @@ export default async function Page() {
   const count = data?.count ?? 0
 
   return (
-    <main className="bg-white">
+    <main className="bg-[#F5F5DC]/10">
       <SplashScreen enabled />
       <SiteHeader />
       <Hero />

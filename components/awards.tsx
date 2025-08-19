@@ -32,7 +32,7 @@ export default function Awards() {
   }, [])
 
   return (
-    <section ref={root} className="py-20 bg-white">
+    <section ref={root} className="py-20 bg-[#819918]/20">
       <div className="container px-6 mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-roboto-slab)] font-bold tracking-wide text-[#0A192F]">

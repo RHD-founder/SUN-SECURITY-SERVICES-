@@ -1,5 +1,8 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Import Client's Professional Color Theme */
+@import "../styles/theme.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -118,6 +121,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#F5F5DC]/30 text-foreground;
   }
 }

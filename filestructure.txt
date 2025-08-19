@@ -22,12 +22,14 @@
             |-- page.tsx
     |-- _components
         |-- page-transition.tsx
+|-- COLOR_SCHEME.md
 |-- components
     |-- awards.tsx
     |-- clients-marquee.tsx
     |-- contact-section.tsx
     |-- gallery-grid.tsx
     |-- hero.tsx
+    |-- lazy-image.tsx
     |-- services-grid.tsx
     |-- site-footer.tsx
     |-- site-header.tsx
@@ -67,6 +69,7 @@
         |-- radio-group.tsx
         |-- resizable.tsx
         |-- scroll-area.tsx
+        |-- security-button.tsx
         |-- select.tsx
         |-- separator.tsx
         |-- sheet.tsx
@@ -90,23 +93,51 @@
 |-- components.json
 |-- hooks
     |-- use-mobile.ts
+    |-- use-performance.ts
     |-- use-toast.ts
 |-- lib
     |-- content.ts
     |-- utils.ts
+|-- middleware.ts
 |-- next-env.d.ts
 |-- next.config.mjs
+|-- NEXTJS_SETUP.md
 |-- package-lock.json
 |-- package.json
 |-- pnpm-lock.yaml
 |-- postcss.config.mjs
 |-- public
+    |-- 1.jpeg
+    |-- 10.jpeg
+    |-- 11.jpeg
+    |-- 12.jpeg
+    |-- 13.jpeg
+    |-- 14.jpeg
+    |-- 15.jpeg
+    |-- 16.jpeg
+    |-- 17.jpeg
+    |-- 18.jpeg
+    |-- 19.jpeg
+    |-- 2.jpeg
+    |-- 20.jpeg
+    |-- 21.jpeg
+    |-- 22.jpeg
+    |-- 23.jpeg
+    |-- 24.jpeg
+    |-- 25.jpeg
+    |-- 26.jpeg
+    |-- 27.jpeg
+    |-- 28.jpeg
+    |-- 29.jpeg
+    |-- 3.jpeg
+    |-- 4.jpeg
+    |-- 5.jpeg
+    |-- 6.jpeg
+    |-- 7.jpeg
+    |-- 8.jpeg
+    |-- 9.jpeg
     |-- apsa-india-chapter.png
-    |-- armored-cash-logistics.png
     |-- capsi-certification.png
-    |-- corporate-security-lobby.png
-    |-- event-security-crowd.png
-    |-- event-security.png
     |-- iso-9001-bureau-veritas-official.png
     |-- iso-9001-nabcb-certification.png
     |-- iso-bureau-veritas-nabcb.png
@@ -139,4 +170,5 @@
 |-- README.md
 |-- styles
     |-- globals.css
+    |-- theme.css
 |-- tsconfig.json

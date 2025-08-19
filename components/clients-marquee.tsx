@@ -18,7 +18,9 @@ export default function ClientsMarquee() {
       duration: 20,
       repeat: -1,
     })
-    return () => t.kill()
+    return () => {
+      t.kill()
+    }
   }, [])
 
   const items = [...clients, ...clients]

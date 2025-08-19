@@ -76,7 +76,7 @@ export const services: Service[] = [
     title: "Event Security",
     description:
       "Specialized crowd management, VIP protection, and comprehensive security solutions for events of any scale.",
-    image: "/event-security-crowd.png",
+    image: "/16.jpeg",
     features: [
       "Crowd Control",
       "VIP Protection",
@@ -92,7 +92,7 @@ export const services: Service[] = [
     title: "Warehouse Security",
     description:
       "Industrial-grade security solutions for warehouses, storage facilities, and distribution centers with asset protection.",
-    image: "/armored-cash-logistics.png",
+    image: "/7.jpeg",
     features: [
       "Asset Protection",
       "Inventory Security",
@@ -124,7 +124,7 @@ export const services: Service[] = [
     title: "Commercial Security",
     description:
       "End-to-end security solutions for offices, retail spaces, and commercial establishments with integrated technology.",
-    image: "/corporate-security-lobby.png",
+    image: "/10.jpeg",
     features: [
       "Office Security",
       "Retail Protection",
@@ -158,7 +158,7 @@ export const services: Service[] = [
     title: "Commercial Security",
     description:
       "Advanced commercial security solutions with technology integration and comprehensive risk management protocols.",
-    image: "/sun-security-formation-1.png",
+    image: "/19.jpeg",
     features: [
       "Advanced Technology",
       "Risk Management",
@@ -238,7 +238,7 @@ export const services: Service[] = [
     title: "Safe And Secure",
     description:
       "Holistic security solutions combining physical security, technology integration, and comprehensive risk management.",
-    image: "/sun-security-building-march.png",
+    image: "/23.jpeg",
     features: [
       "Risk Assessment",
       "Technology Integration",

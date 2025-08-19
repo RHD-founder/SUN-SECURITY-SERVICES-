@@ -5,7 +5,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
+import SecurityButton from "@/components/ui/security-button"
 import { FaPhone, FaEnvelope, FaLocationDot, FaUser, FaPaperPlane, FaFax } from "react-icons/fa6"
 import { BRAND } from "@/lib/content"
 import { useState } from "react"
@@ -39,20 +39,20 @@ export default function ContactSection() {
       setSent(true)
       reset()
       setTimeout(() => setSent(false), 5000)
-    } catch {}
+    } catch { }
   }
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-[#F5F5DC]/10">
       <div className="container px-6 mx-auto">
         {/* Contact Form */}
         <div className="max-w-4xl mx-auto mb-20">
-          <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-12">
+          <div className="bg-white rounded-2xl border border-[#556B2F]/20 shadow-lg p-12">
             <div className="text-center mb-12">
-              <h2 className="text-5xl md:text-6xl font-[var(--font-roboto-slab)] font-bold text-[#0A192F] mb-4">
+              <h2 className="text-5xl md:text-6xl font-[var(--font-bebas)] font-bold text-[#8B0000] mb-4">
                 Get Your Security Quote
               </h2>
-              <p className="text-gray-600 font-[var(--font-poppins)] text-lg">
+              <p className="text-[#556B2F] font-[var(--font-montserrat)] text-lg">
                 Fill out the form below and our security experts will contact you within 24 hours.
               </p>
             </div>
@@ -60,16 +60,16 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-gray-700">
+                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-[#556B2F]">
                     Full Name *
                   </label>
                   <div className="relative">
-                    <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-[#556B2F]/60" />
                     <Input
                       placeholder="Enter your full name"
                       aria-invalid={!!errors.name}
                       {...register("name")}
-                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-gray-200 focus:border-[#FFD700] focus:ring-0 rounded-lg transition-colors"
+                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-[#556B2F]/30 focus:border-[#8B0000] focus:ring-0 rounded-lg transition-colors"
                     />
                   </div>
                   {errors.name && (
@@ -78,17 +78,17 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-gray-700">
+                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-[#556B2F]">
                     Phone Number *
                   </label>
                   <div className="relative">
-                    <FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <FaPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-[#556B2F]/60" />
                     <Input
                       type="tel"
                       placeholder="Enter your phone number"
                       aria-invalid={!!errors.phone}
                       {...register("phone")}
-                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-gray-200 focus:border-[#FFD700] focus:ring-0 rounded-lg transition-colors"
+                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-[#556B2F]/30 focus:border-[#8B0000] focus:ring-0 rounded-lg transition-colors"
                     />
                   </div>
                   {errors.phone && (
@@ -99,17 +99,17 @@ export default function ContactSection() {
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-gray-700">
+                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-[#556B2F]">
                     Email Address *
                   </label>
                   <div className="relative">
-                    <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+                    <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-[#556B2F]/60" />
                     <Input
                       type="email"
                       placeholder="Enter your email address"
                       aria-invalid={!!errors.email}
                       {...register("email")}
-                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-gray-200 focus:border-[#FFD700] focus:ring-0 rounded-lg transition-colors"
+                      className="h-14 pl-12 font-[var(--font-poppins)] text-base border-2 border-[#556B2F]/30 focus:border-[#8B0000] focus:ring-0 rounded-lg transition-colors"
                     />
                   </div>
                   {errors.email && (
@@ -118,14 +118,14 @@ export default function ContactSection() {
                 </div>
 
                 <div className="space-y-3">
-                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-gray-700">
+                  <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-[#556B2F]">
                     Subject *
                   </label>
                   <Input
                     placeholder="Security quote request"
                     aria-invalid={!!errors.subject}
                     {...register("subject")}
-                    className="h-14 font-[var(--font-poppins)] text-base border-2 border-gray-200 focus:border-[#FFD700] focus:ring-0 rounded-lg transition-colors"
+                    className="h-14 font-[var(--font-poppins)] text-base border-2 border-[#556B2F]/30 focus:border-[#8B0000] focus:ring-0 rounded-lg transition-colors"
                   />
                   {errors.subject && (
                     <p className="text-sm text-red-600 font-[var(--font-poppins)]">{errors.subject.message}</p>
@@ -134,7 +134,7 @@ export default function ContactSection() {
               </div>
 
               <div className="space-y-3">
-                <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-gray-700">
+                <label className="block text-sm font-[var(--font-montserrat)] font-semibold text-[#556B2F]">
                   Message & Requirements *
                 </label>
                 <Textarea
@@ -142,7 +142,7 @@ export default function ContactSection() {
                   placeholder="Please describe your security requirements, property type, and any specific needs..."
                   aria-invalid={!!errors.message}
                   {...register("message")}
-                  className="font-[var(--font-poppins)] text-base border-2 border-gray-200 focus:border-[#FFD700] focus:ring-0 rounded-lg transition-colors resize-none"
+                  className="font-[var(--font-poppins)] text-base border-2 border-[#556B2F]/30 focus:border-[#8B0000] focus:ring-0 rounded-lg transition-colors resize-none"
                 />
                 {errors.message && (
                   <p className="text-sm text-red-600 font-[var(--font-poppins)]">{errors.message.message}</p>
@@ -150,10 +150,12 @@ export default function ContactSection() {
               </div>
 
               <div className="pt-4">
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full h-14 bg-[#0A192F] hover:bg-[#1a2332] text-white font-[var(--font-poppins)] font-semibold text-lg rounded-lg transition-all duration-300"
+                <SecurityButton
+                  onClick={handleSubmit(onSubmit)}
+                  variant="primary"
+                  size="lg"
+                  showLogo={false}
+                  className="w-full h-14 font-[var(--font-montserrat)] font-semibold text-lg"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-3">
@@ -166,7 +168,7 @@ export default function ContactSection() {
                       Send Security Quote Request
                     </div>
                   )}
-                </Button>
+                </SecurityButton>
               </div>
 
               {sent && (
@@ -183,27 +185,27 @@ export default function ContactSection() {
         {/* Contact Information - Horizontal Layout */}
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h3 className="text-5xl md:text-6xl font-[var(--font-roboto-slab)] font-bold text-[#0A192F] mb-4">
+            <h3 className="text-5xl md:text-6xl font-[var(--font-bebas)] font-bold text-[#8B0000] mb-4">
               Contact Us
             </h3>
-            <p className="text-gray-600 font-[var(--font-poppins)] text-lg">We typically respond within 24 hours.</p>
+            <p className="text-[#556B2F] font-[var(--font-montserrat)] text-lg">We typically respond within 24 hours.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Phone Numbers */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-8 h-8 bg-[#FFD700] rounded-lg flex items-center justify-center shrink-0">
-                  <FaPhone className="text-[#0A192F] text-lg" />
+                <div className="w-8 h-8 bg-[#556B2F] rounded-lg flex items-center justify-center shrink-0">
+                  <FaPhone className="text-[#F5F5DC] text-lg" />
                 </div>
-                <h4 className="font-[var(--font-montserrat)] font-bold text-[#0A192F] text-lg">Phone Numbers:</h4>
+                <h4 className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Phone Numbers:</h4>
               </div>
               <div className="space-y-2">
                 {BRAND.phoneNumbers.map((phone, i) => (
                   <div key={i}>
                     <a
                       href={`tel:${phone.replace(/\D/g, "")}`}
-                      className="block text-gray-700 font-[var(--font-poppins)] text-base hover:text-[#0A192F] transition-colors"
+                      className="block text-[#556B2F] font-[var(--font-poppins)] text-base hover:text-[#8B0000] transition-colors"
                     >
                       {phone}
                     </a>
@@ -215,14 +217,14 @@ export default function ContactSection() {
             {/* Email */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-8 h-8 bg-[#FFD700] rounded-lg flex items-center justify-center shrink-0">
-                  <FaEnvelope className="text-[#0A192F] text-lg" />
+                <div className="w-8 h-8 bg-[#556B2F] rounded-lg flex items-center justify-center shrink-0">
+                  <FaEnvelope className="text-[#F5F5DC] text-lg" />
                 </div>
-                <h4 className="font-[var(--font-montserrat)] font-bold text-[#0A192F] text-lg">Email:</h4>
+                <h4 className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Email:</h4>
               </div>
               <a
                 href={`mailto:${BRAND.email}`}
-                className="text-gray-700 font-[var(--font-poppins)] text-base hover:text-[#0A192F] transition-colors"
+                className="text-[#556B2F] font-[var(--font-poppins)] text-base hover:text-[#8B0000] transition-colors"
               >
                 {BRAND.email}
               </a>
@@ -231,23 +233,23 @@ export default function ContactSection() {
             {/* Address */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-8 h-8 bg-[#FFD700] rounded-lg flex items-center justify-center shrink-0">
-                  <FaLocationDot className="text-[#0A192F] text-lg" />
+                <div className="w-8 h-8 bg-[#556B2F] rounded-lg flex items-center justify-center shrink-0">
+                  <FaLocationDot className="text-[#F5F5DC] text-lg" />
                 </div>
-                <h4 className="font-[var(--font-montserrat)] font-bold text-[#0A192F] text-lg">Address:</h4>
+                <h4 className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Address:</h4>
               </div>
-              <div className="text-gray-700 font-[var(--font-poppins)] text-base leading-relaxed">{BRAND.address}</div>
+              <div className="text-[#556B2F] font-[var(--font-poppins)] text-base leading-relaxed">{BRAND.address}</div>
             </div>
 
             {/* Fax */}
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-8 h-8 bg-[#FFD700] rounded-lg flex items-center justify-center shrink-0">
-                  <FaFax className="text-[#0A192F] text-lg" />
+                <div className="w-8 h-8 bg-[#556B2F] rounded-lg flex items-center justify-center shrink-0">
+                  <FaFax className="text-[#F5F5DC] text-lg" />
                 </div>
-                <h4 className="font-[var(--font-montserrat)] font-bold text-[#0A192F] text-lg">Fax:</h4>
+                <h4 className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Fax:</h4>
               </div>
-              <div className="text-gray-700 font-[var(--font-poppins)] text-base">{BRAND.fax}</div>
+              <div className="text-[#556B2F] font-[var(--font-poppins)] text-base">{BRAND.fax}</div>
             </div>
           </div>
         </div>
