@@ -1,28 +1,19 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Bebas_Neue, Inter, Poppins, Playfair_Display, Roboto_Slab, Montserrat } from "next/font/google"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 
-const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" })
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const poppins = Poppins({ weight: ["300", "400", "500", "600", "700"], subsets: ["latin"], variable: "--font-poppins" })
-const playfair = Playfair_Display({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-playfair",
-})
-const robotoSlab = Roboto_Slab({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-roboto-slab",
-})
-const montserrat = Montserrat({
-  weight: ["300", "400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-})
+// Fallback font variables using system fonts instead of Google Fonts
+const fontVariables = {
+  "--font-bebas": "Bebas Neue, Impact, 'Arial Black', sans-serif",
+  "--font-inter": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-poppins": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-playfair": "'Playfair Display', Georgia, 'Times New Roman', serif",
+  "--font-roboto-slab": "'Roboto Slab', Georgia, 'Times New Roman', serif",
+  "--font-montserrat": "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-system-ui": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+}
 
 export const metadata: Metadata = {
   title: "SUN SECURITY SERVICES™ | ISO 9001:2015 Certified Security Company in Guwahati",
@@ -107,18 +98,18 @@ html {
   font-family: ${GeistSans.style.fontFamily};
   --font-sans: ${GeistSans.variable};
   --font-mono: ${GeistMono.variable};
-  --font-bebas: ${bebas.variable};
-  --font-inter: ${inter.variable};
-  --font-poppins: ${poppins.variable};
-  --font-playfair: ${playfair.variable};
-  --font-roboto-slab: ${robotoSlab.variable};
-  --font-montserrat: ${montserrat.variable};
-  --font-system-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-bebas: ${fontVariables["--font-bebas"]};
+  --font-inter: ${fontVariables["--font-inter"]};
+  --font-poppins: ${fontVariables["--font-poppins"]};
+  --font-playfair: ${fontVariables["--font-playfair"]};
+  --font-roboto-slab: ${fontVariables["--font-roboto-slab"]};
+  --font-montserrat: ${fontVariables["--font-montserrat"]};
+  --font-system-ui: ${fontVariables["--font-system-ui"]};
 }
         `}</style>
       </head>
       <body
-        className={`${bebas.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} ${robotoSlab.variable} ${montserrat.variable} font-['system-ui'] antialiased bg-[#F5F5DC]/20`}
+        className="font-['system-ui'] antialiased bg-[#F5F5DC]/20"
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
