@@ -1,25 +1,34 @@
 export type Service = {
-  slug: string
-  title: string
-  description: string
-  image: string
-  icon?: string
-  features?: string[]
-}
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  icon?: string;
+  features?: string[];
+};
 
 export const BRAND = {
   name: "SUN SECURITY SERVICES™",
-  fullName: "SUN SECURITY SERVICES™ (An ISO 9001:2015 Certified Ex-Servicemen Enterprise)",
-  tagline: "North East India's Pioneer Security Organization with almost two Decades of Excellence",
-  description: "Govt. Approved security consultants with comprehensive range of services",
+  fullName:
+    "SUN SECURITY SERVICES™ (An ISO 9001:2015 Certified Ex-Servicemen Enterprise)",
+  tagline:
+    "North East India's Pioneer Security Organization with almost two Decades of Excellence",
+  description:
+    "Govt. Approved security consultants with comprehensive range of services",
   phone: "8486026829",
-  phoneNumbers: ["8486026829", "95088119134", "9954705329", "03613195254", "03614522309"],
+  phoneNumbers: [
+    "8486026829",
+    "95088119134",
+    "9954705329",
+    "03613195254",
+    "03614522309",
+  ],
   email: "admin@sunsecuritymail.com",
   fax: "0361 2528676",
   address: "House No. 211, 1st Floor, R. G. Baruah Road, Guwahati – 24",
   addressShort: "Guwahati, Assam",
   whatsapp: "+9195088119134",
-}
+};
 
 export const services: Service[] = [
   // Core Security Services
@@ -265,7 +274,7 @@ export const services: Service[] = [
     ],
     icon: "user-shield",
   },
-]
+];
 
 export const awards = [
   {
@@ -310,16 +319,82 @@ export const awards = [
     proof: "#",
     category: "certification",
   },
-]
+];
 
 export const clients = [
-  { name: "NorthEast Bank", logo: "/finance-bank-logo.png" },
-  { name: "Assam Mall", logo: "/generic-mall-logo.png" },
-  { name: "TechHub", logo: "/generic-tech-logo.png" },
-  { name: "Oil & Gas Co", logo: "/placeholder.svg?height=60&width=180" },
-  { name: "EduCare", logo: "/placeholder.svg?height=60&width=180" },
-  { name: "HealthPlus", logo: "/placeholder.svg?height=60&width=180" },
-]
+  {
+    name: "North Eastern Development Finance Corporation Ltd (NEDFi)",
+    logo: "/logos/nedfi.jpeg",
+  },
+  { name: "North East Frontier Railway", logo: "/logos/nefr.jpeg" },
+  {
+    name: "Airport Authority of India",
+    logo: "/logos/Airport Authority of India.jpeg",
+  },
+  {
+    name: "National Small Industries Corporation Ltd (NSIC)",
+    logo: "/logos/nsic.jpeg",
+  },
+  {
+    name: "Guwahati Medical College and Hospital",
+    logo: "/logos/gmch.jpeg",
+  },
+  { name: "Narayana Hrudayalaya", logo: "/logos/Narayana.jpeg" },
+  { name: "Nemcare Hospital", logo: "/logos/nemcare.jpeg" },
+  {
+    name: "Marwari Maternity Hospital",
+    logo: "/logos/marwari.jpeg",
+  },
+  { name: "Apollo Hospital", logo: "/logos/Apollo.jpeg" },
+  {
+    name: "Satribari Christian Hospital",
+    logo: "/logos/Satribari.jpeg",
+  },
+  { name: "Pratiksha Hospital", logo: "/logos/pratikshahospital.jpeg" },
+  { name: "GNRC Hospital", logo: "/logos/gnrc.jpeg" },
+  { name: "Indian Oil Corporation Ltd", logo: "/logos/iocl.jpeg" },
+  {
+    name: "Indian Oil Corpn. Ltd (Assam Oil Divn.)",
+    logo: "/logos/assamoil.jpeg",
+  },
+  {
+    name: "Hindustan Petroleum Corporation Ltd (HPCl)",
+    logo: "/logos/hpcl.jpeg",
+  },
+  {
+    name: "Gas Authority of India Ltd (GAIL)",
+    logo: "/logos/gail.jpeg",
+  },
+  {
+    name: "Tripura Natural Gas Co Ltd (TNGCL)",
+    logo: "/logos/tngcl.jpeg",
+  },
+  { name: "Bharat Sanchar Nigam Ltd (BSNL)", logo: "/logos/bsnl.jpeg" },
+  {
+    name: "Erricson India Pvt Ltd (EIPL)",
+    logo: "/logos/erricson.jpeg",
+  },
+  {
+    name: "Reliance Telecom Ltd (RTL)",
+    logo: "/logos/rtl.jpeg",
+  },
+  {
+    name: "Dishnet Wireless Pvt Ltd (AIRCEL)",
+    logo: "/logos/aircel.jpeg",
+  },
+  { name: "GLT India Pvt Ltd", logo: "/logos/glt.jpeg" },
+  { name: "Axis Bank", logo: "/logos/axisbank.jpeg" },
+  { name: "IndusInd Bank", logo: "/logos/indulsindbank.jpeg" },
+  { name: "Bank of Maharashtra", logo: "/logos/bankofmaharastra.jpeg" },
+  { name: "Bank of Karnataka", logo: "/logos/bankofkarnataka.jpeg" },
+  { name: "South Indian Bank", logo: "/logos/southindianbank.jpeg" },
+  { name: "IDBI Bank", logo: "/logos/IDBIbank.jpeg" },
+  { name: "HDFC Bank", logo: "/logos/hdfc.jpeg" },
+  {
+    name: "North East Small Finance Bank",
+    logo: "/logos/NESFbank.jpeg",
+  },
+];
 
 export const testimonials = [
   {
@@ -343,4 +418,4 @@ export const testimonials = [
     text: "Reliable guards and swift response. Our residents feel safe and supported around the clock.",
     image: "/placeholder.svg?height=96&width=96",
   },
-]
+];

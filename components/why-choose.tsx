@@ -45,13 +45,13 @@ export default function WhyChoose() {
     return () => ctx.revert()
   }, [])
   return (
-    <section ref={root} className="py-20 bg-[#819918]/20">
+    <section ref={root} className="py-20 bg-[#EDE2A8]/20">
       <div className="container px-6 mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-roboto-slab)] font-bold tracking-wide text-[#0A192F]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-[#0A192F] font-[var(--font-system-ui)]">
             Why Choose Us
           </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl mx-auto text-lg font-[var(--font-poppins)] leading-relaxed">
+          <p className="mt-4 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed font-[var(--font-inter)]">
             We combine elite training, disciplined processes, and technology-backed operations to deliver uncompromising
             security solutions across Northeast India.
           </p>
@@ -63,8 +63,8 @@ export default function WhyChoose() {
               className="why-card group rounded-2xl border bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <div className="text-[#FFD700] text-3xl mb-4">{it.icon}</div>
-              <div className="font-[var(--font-montserrat)] text-xl font-bold text-[#0A192F] mb-3">{it.title}</div>
-              <div className="text-gray-600 font-[var(--font-poppins)] leading-relaxed">{it.text}</div>
+              <div className="text-xl font-[var(--font-inter)] font-medium text-[#0A192F] mb-3">{it.title}</div>
+              <div className="text-gray-600 leading-relaxed font-[var(--font-inter)]">{it.text}</div>
               <div className="mt-6 h-1 w-12 bg-[#FFD700] scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded" />
             </div>
           ))}

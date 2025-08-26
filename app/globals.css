@@ -1,12 +1,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Import Client's Professional Color Theme */
-@import "../styles/theme.css";
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Font Families - Using Next.js font variables from layout.tsx */
+  --font-system-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -26,12 +34,6 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -49,29 +51,24 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.145 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: oklch(0.145 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.145 0 0);
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.145 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.145 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
@@ -97,15 +94,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -121,6 +109,157 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#F5F5DC]/30 text-foreground;
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Client Name Styling */
+.client-name {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Navigation Font Styling */
+.nav-system-font {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Custom Marquee Animation */
+@keyframes marquee-smooth {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-smooth {
+  animation: marquee-smooth 35s linear infinite;
+}
+
+/* Hero Section Styling */
+.hero-section {
+  background: linear-gradient(135deg, #f5f5dc 0%, #f5f5dc 50%, #f5f5dc 100%);
+}
+
+.hero-image-container {
+  position: relative;
+}
+
+.hero-image {
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-content {
+  animation: slideInFromRight 1.2s ease-out;
+}
+
+.hero-title {
+  font-family: var(--font-bebas);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: #8b0000; /* Dark maroon for contrast on light background */
+}
+
+.hero-subtitle {
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+  line-height: 1.6;
+  color: #2f2f2f; /* Dark gray for good readability on light background */
+}
+
+.hero-features span {
+  background: rgba(139, 0, 0, 0.1); /* Light maroon background */
+  border: 1px solid rgba(139, 0, 0, 0.3); /* Maroon border */
+  color: #8b0000; /* Dark maroon text for contrast */
+  transition: all 0.3s ease;
+}
+
+.hero-features span:hover {
+  background: rgba(139, 0, 0, 0.2); /* Slightly darker on hover */
+  border-color: rgba(139, 0, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.hero-button {
+  transition: all 0.3s ease;
+}
+
+.hero-stats {
+  border-top: 1px solid rgba(245, 245, 220, 0.2);
+}
+
+.hero-navigation-arrow {
+  background: rgba(139, 0, 0, 0.2); /* Light maroon background */
+  border: 1px solid rgba(139, 0, 0, 0.4); /* Maroon border */
+  color: #8b0000; /* Dark maroon text for contrast */
+  transition: all 0.5s ease-out;
+}
+
+.hero-navigation-arrow:hover {
+  background: rgba(139, 0, 0, 0.3); /* Darker on hover */
+  border-color: rgba(139, 0, 0, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(139, 0, 0, 0.3);
+}
+
+.hero-slide-indicator {
+  transition: all 0.5s ease-out;
+}
+
+.hero-slide-indicator.active {
+  background: #8b0000; /* Dark maroon for active state */
+  transform: scale(1.25);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+  ring: 2px solid rgba(139, 0, 0, 0.4);
+}
+
+.hero-slide-indicator.inactive {
+  background: rgba(139, 0, 0, 0.3); /* Light maroon for inactive */
+}
+
+.hero-slide-indicator.inactive:hover {
+  background: rgba(139, 0, 0, 0.6); /* Darker on hover */
+  transform: scale(1.1);
+}
+
+.hero-image-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(139, 0, 0, 0.3) 0%,
+    transparent 100%
+  );
+}
+
+.hero-loading-spinner {
+  border: 2px solid rgba(139, 0, 0, 0.4); /* Maroon border */
+  border-top: 2px solid #8b0000; /* Dark maroon top border */
+  animation: spin 1s linear infinite;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

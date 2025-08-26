@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { BRAND } from "@/lib/content"
+import { FaPhone, FaEnvelope, FaFax } from "react-icons/fa"
 
 export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number }) {
   return (
@@ -37,6 +39,29 @@ export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number
                 <Link href="/contact" className="hover:underline hover:text-[#8B0000] transition-colors">
                   Contact
                 </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Contact Info</div>
+            <ul className="mt-4 space-y-3 text-[#556B2F] font-system-ui">
+              <li className="flex items-start gap-2">
+                <FaPhone className="text-[#8B0000] text-sm mt-1" />
+                <div className="text-xs space-y-1">
+                  {BRAND.phoneNumbers.map((phone, i) => (
+                    <div key={i}>{phone}</div>
+                  ))}
+                </div>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaEnvelope className="text-[#8B0000] text-sm" />
+                <a href={`mailto:${BRAND.email}`} className="text-xs hover:text-[#8B0000] transition-colors">
+                  {BRAND.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaFax className="text-[#8B0000] text-sm" />
+                <span className="text-xs">Fax: {BRAND.fax}</span>
               </li>
             </ul>
           </div>

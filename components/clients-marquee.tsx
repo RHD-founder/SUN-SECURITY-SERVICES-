@@ -1,59 +1,47 @@
 "use client"
 
 import { clients } from "@/lib/content"
-import Image from "next/image"
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
+import Link from "next/link"
 
 export default function ClientsMarquee() {
-  const track = useRef<HTMLDivElement>(null)
+  const items = [...clients, ...clients] // Duplicate for seamless infinite loop
 
-  useEffect(() => {
-    const el = track.current
-    if (!el) return
-    const width = el.scrollWidth / 2
-    const t = gsap.to(el, {
-      x: -width,
-      ease: "none",
-      duration: 20,
-      repeat: -1,
-    })
-    return () => {
-      t.kill()
-    }
-  }, [])
-
-  const items = [...clients, ...clients]
   return (
-    <section className="py-20 bg-[#0A192F] text-white">
+    <section className="py-20 bg-[#381016] text-white">
       <div className="container px-6 mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-roboto-slab)] font-bold tracking-wide">
-            Trusted by 100+ Clients
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-roboto-slab)] font-normal tracking-wide">
+            Trusted by 30+ Clients
           </h2>
           <p className="text-white/80 mt-4 text-lg font-[var(--font-poppins)]">
             Partners across finance, retail, technology, and public sector throughout Northeast India.
           </p>
+          <div className="mt-8">
+            <Link
+              href="/clients"
+              className="inline-flex items-center px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors duration-200 border border-white/20"
+            >
+              View All Client Logos →
+            </Link>
+          </div>
         </div>
+
         <div className="relative overflow-hidden">
-          <div ref={track} className="flex gap-12 will-change-transform">
+          <div className="flex animate-marquee-smooth min-w-max">
             {items.map((c, i) => (
               <div
                 key={i}
-                className="shrink-0 h-20 w-[200px] flex items-center justify-center rounded-xl bg-white/5 border border-white/10 p-4"
+                className="shrink-0 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10 mx-4"
               >
-                <Image
-                  src={c.logo || "/placeholder.svg"}
-                  alt={`${c.name} logo`}
-                  width={180}
-                  height={50}
-                  className="object-contain"
-                />
+                <h3 className="text-white client-name text-sm">
+                  {c.name}
+                </h3>
               </div>
             ))}
           </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0A192F] to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0A192F] to-transparent" />
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#381016] to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#381016] to-transparent" />
         </div>
       </div>
     </section>

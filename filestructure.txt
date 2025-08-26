@@ -9,6 +9,8 @@
             |-- route.ts
         |-- visitors
             |-- route.ts
+    |-- clients
+        |-- page.tsx
     |-- contact
         |-- page.tsx
     |-- gallery
@@ -22,7 +24,6 @@
             |-- page.tsx
     |-- _components
         |-- page-transition.tsx
-|-- COLOR_SCHEME.md
 |-- components
     |-- awards.tsx
     |-- clients-marquee.tsx
@@ -86,14 +87,11 @@
         |-- toggle-group.tsx
         |-- toggle.tsx
         |-- tooltip.tsx
-        |-- use-mobile.tsx
-        |-- use-toast.ts
     |-- whatsapp-widget.tsx
     |-- why-choose.tsx
 |-- components.json
 |-- hooks
     |-- use-mobile.ts
-    |-- use-performance.ts
     |-- use-toast.ts
 |-- lib
     |-- content.ts
@@ -101,7 +99,6 @@
 |-- middleware.ts
 |-- next-env.d.ts
 |-- next.config.mjs
-|-- NEXTJS_SETUP.md
 |-- package-lock.json
 |-- package.json
 |-- pnpm-lock.yaml
@@ -141,15 +138,44 @@
     |-- iso-9001-bureau-veritas-official.png
     |-- iso-9001-nabcb-certification.png
     |-- iso-bureau-veritas-nabcb.png
+    |-- logos
+        |-- aircel.jpeg
+        |-- Airport Authority of India.jpeg
+        |-- Apollo.jpeg
+        |-- assamoil.jpeg
+        |-- axisbank.jpeg
+        |-- bankofkarnataka.jpeg
+        |-- bankofmaharastra.jpeg
+        |-- bsnl.jpeg
+        |-- erricson.jpeg
+        |-- gail.jpeg
+        |-- glt.jpeg
+        |-- gmch.jpeg
+        |-- gnrc.jpeg
+        |-- hdfc.jpeg
+        |-- hpcl.jpeg
+        |-- IDBIbank.jpeg
+        |-- indulsindbank.jpeg
+        |-- iocl.jpeg
+        |-- marwari.jpeg
+        |-- Narayana.jpeg
+        |-- nedfi.jpeg
+        |-- nefr.jpeg
+        |-- nemcare.jpeg
+        |-- NESFbank.jpeg
+        |-- nsic.jpeg
+        |-- pratikshahospital.jpeg
+        |-- rtl.jpeg
+        |-- Satribari.jpeg
+        |-- southindianbank.jpeg
+        |-- tngcl.jpeg
     |-- placeholder-2pwm7.png
     |-- placeholder-ahetc.png
     |-- placeholder-geugh.png
     |-- placeholder-logo.png
-    |-- placeholder-logo.svg
     |-- placeholder-rxzkg.png
     |-- placeholder-user.jpg
     |-- placeholder.jpg
-    |-- placeholder.svg
     |-- sun-security-building-march.png
     |-- sun-security-ceremonial-formation.png
     |-- sun-security-courtyard-formation.png
@@ -168,7 +194,5 @@
     |-- sun-security-team-5.jpeg
     |-- sun-security-team-group-photo.png
 |-- README.md
-|-- styles
-    |-- globals.css
-    |-- theme.css
+|-- tailwind.config.js
 |-- tsconfig.json

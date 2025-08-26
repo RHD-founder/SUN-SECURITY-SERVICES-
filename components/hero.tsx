@@ -3,16 +3,14 @@
 import { useEffect, useRef, useState, Suspense } from "react"
 import Image from "next/image"
 import gsap from "gsap"
-import { Button } from "@/components/ui/button"
 import SecurityButton from "@/components/ui/security-button"
-import Link from "next/link"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
 // Lazy load heavy components
 const LazyImage = dynamic(() => import('./lazy-image'), {
-  loading: () => <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse" />,
+  loading: () => <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse rounded-2xl" />,
   ssr: false
 })
 
@@ -22,24 +20,28 @@ const heroSlides = [
     title: "Highest Level of Protection",
     subtitle: "Our officers are perfectly adapted to circumstances with military discipline and professional excellence ensuring maximum security coverage.",
     alt: "Large formation of SUN SECURITY SERVICES officers in ceremonial formation",
+    features: ["Military Discipline", "Professional Excellence", "Maximum Security Coverage"]
   },
   {
     image: "/5.jpeg",
     title: "Elite Corporate Security",
     subtitle: "Disciplined ex-servicemen personnel providing comprehensive security solutions with military precision and unwavering commitment to safety.",
     alt: "SUN SECURITY SERVICES team marching in professional formation",
+    features: ["Ex-Servicemen Personnel", "Military Precision", "Comprehensive Solutions"]
   },
   {
     image: "/3.jpeg",
     title: "Professional Excellence",
     subtitle: "Two decades of trusted security services with trained professionals delivering superior protection across Northeast India.",
     alt: "Security personnel marching in formation in front of modern building",
+    features: ["Two Decades Experience", "Trained Professionals", "Northeast Coverage"]
   },
   {
     image: "/23.jpeg",
     title: "Advanced Security Solutions",
     subtitle: "State-of-the-art security infrastructure combined with highly trained personnel ensuring comprehensive protection for your assets.",
     alt: "Modern security operations center with professional staff",
+    features: ["Modern Infrastructure", "Highly Trained Staff", "Asset Protection"]
   },
 ]
 
@@ -50,6 +52,7 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [imageError, setImageError] = useState<{ [key: number]: boolean }>({})
   const [nextImageLoaded, setNextImageLoaded] = useState<{ [key: number]: boolean }>({})
+  const [isImageTransitioning, setIsImageTransitioning] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   // Next.js App Router: Prefetch next page for instant navigation
@@ -80,197 +83,358 @@ export default function Hero() {
   // Auto-advance carousel
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 6000)
+      smoothChangeSlide((currentSlide + 1) % heroSlides.length)
+    }, 8000)
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [])
+  }, [currentSlide])
 
   // Reset interval when manually changing slides
   const changeSlide = (index: number) => {
-    setCurrentSlide(index)
+    smoothChangeSlide(index)
     if (intervalRef.current) clearInterval(intervalRef.current)
     intervalRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-    }, 6000)
+      smoothChangeSlide((currentSlide + 1) % heroSlides.length)
+    }, 8000)
   }
 
   const nextSlide = () => {
-    changeSlide((currentSlide + 1) % heroSlides.length)
+    smoothChangeSlide((currentSlide + 1) % heroSlides.length)
   }
 
   const prevSlide = () => {
-    changeSlide(currentSlide === 0 ? heroSlides.length - 1 : currentSlide - 1)
+    smoothChangeSlide(currentSlide === 0 ? heroSlides.length - 1 : currentSlide - 1)
   }
 
-  // Professional GSAP animations with Next.js optimizations
+  // Initial page load animations only (not on slide change)
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.3 })
+      const tl = gsap.timeline({ delay: 0.2 })
 
-      tl.fromTo(".hero-title",
-        { y: 50, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" }
+      // Smooth content entrance (only on initial load)
+      tl.fromTo(".hero-content",
+        { x: 30, opacity: 0, y: 20 },
+        { x: 0, opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
       )
-        .fromTo(".hero-subtitle",
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: "power2.out" },
+        // Staggered features animation (only on initial load)
+        .fromTo(".hero-features span",
+          { y: 25, opacity: 0, scale: 0.9 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)", stagger: 0.1 },
           "-=0.8"
         )
+        // Smooth button entrance (only on initial load)
         .fromTo(".hero-button",
-          { y: 20, opacity: 0, scale: 0.9 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" },
+          { y: 25, opacity: 0, scale: 0.95 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "back.out(1.7)" },
           "-=0.6"
         )
-        .fromTo(".hero-stats",
-          { y: 15, opacity: 0, stagger: 0.1 },
-          { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+        // Stats animation (only on initial load)
+        .fromTo(".hero-stats > div",
+          { y: 20, opacity: 0, scale: 0.95 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "power2.out", stagger: 0.08 },
           "-=0.4"
         )
     }, root)
 
     return () => ctx.revert()
-  }, [currentSlide])
+  }, []) // Empty dependency array - only runs once on mount
+
+  // Smooth slide transition effect
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const smoothChangeSlide = (index: number) => {
+    if (isTransitioning || index === currentSlide) return
+
+    setIsTransitioning(true)
+    setIsImageTransitioning(true)
+
+    // Smooth image crossfade only (frame stays static)
+    gsap.to(".hero-image", {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.in",
+      onComplete: () => {
+        setCurrentSlide(index)
+
+        // Fade in new image
+        gsap.to(".hero-image", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+          onComplete: () => setIsImageTransitioning(false)
+        })
+      }
+    })
+
+    // Only animate the dynamic content (title, subtitle, features)
+    // Button and stats remain static
+    gsap.to(".hero-title", {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      ease: "power2.in"
+    })
+
+    gsap.to(".hero-subtitle", {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      ease: "power2.in",
+      delay: 0.1
+    })
+
+    gsap.to(".hero-features span", {
+      opacity: 0,
+      y: -15,
+      duration: 0.3,
+      ease: "power2.in",
+      delay: 0.2,
+      stagger: 0.05
+    })
+
+    // After dynamic content fades out, update slide and fade in new content
+    setTimeout(() => {
+      // Fade in only the dynamic content elements
+      gsap.fromTo(".hero-title",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+      )
+
+      gsap.fromTo(".hero-subtitle",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+      )
+
+      gsap.fromTo(".hero-features span",
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out", stagger: 0.08 }
+      )
+
+      setIsTransitioning(false)
+    }, 400) // Wait for fade out to complete
+  }
 
   // Professional visitor counter with Next.js optimizations
   useEffect(() => {
     async function fetchCount() {
       try {
+        console.log("🔄 Starting visitor count fetch...")
         const res = await fetch("/api/visitors", {
           cache: "no-store",
           next: { revalidate: 60 } // Next.js 13+ revalidation
         })
         const data = await res.json()
         let base = data.count as number
+        console.log("📊 API returned count:", base)
+
         const key = "sun_vis_seen"
         if (!localStorage.getItem(key)) {
           base += Math.floor(Math.random() * 5) + 1
           localStorage.setItem(key, "1")
+          console.log("🎲 Added random increment, new base:", base)
         }
+
+        // Ensure we have a valid number
+        if (!base || isNaN(base)) {
+          base = 1337
+          console.log("⚠️ Invalid count, using fallback:", base)
+        }
+
+        console.log("🚀 Starting count animation from 0 to:", base)
+
+        // Always start from 0 for fresh animation
+        setCount(0)
+
+        // Start counting from 0 to the target number
         const obj = { n: 0 }
         gsap.to(obj, {
           n: base,
           duration: 2.5,
           ease: "power3.out",
-          onUpdate: () => setCount(Math.floor(obj.n)),
+          onUpdate: () => {
+            const currentValue = Math.floor(obj.n)
+            setCount(currentValue)
+            console.log("📈 Counting:", currentValue)
+          },
+          onComplete: () => {
+            setCount(base) // Ensure final number is exact
+            console.log("✅ Count animation completed:", base)
+          }
         })
-      } catch {
-        setCount(1337)
+      } catch (error) {
+        console.log("❌ Visitor count fetch failed, using fallback:", error)
+        // Fallback counting animation
+        const fallbackCount = 1337
+        console.log("🔄 Starting fallback count animation to:", fallbackCount)
+
+        // Always start from 0 for fresh animation
+        setCount(0)
+
+        const obj = { n: 0 }
+        gsap.to(obj, {
+          n: fallbackCount,
+          duration: 2.5,
+          ease: "power3.out",
+          onUpdate: () => {
+            const currentValue = Math.floor(obj.n)
+            setCount(currentValue)
+            console.log("📈 Fallback counting:", currentValue)
+          },
+          onComplete: () => {
+            setCount(fallbackCount)
+            console.log("✅ Fallback count animation completed:", fallbackCount)
+          }
+        })
       }
     }
-    fetchCount()
+
+    // Add a small delay to ensure GSAP is ready and DOM is mounted
+    const timer = setTimeout(() => {
+      console.log("⏰ Timer fired, calling fetchCount...")
+      fetchCount()
+    }, 200)
+
+    return () => clearTimeout(timer)
   }, [])
 
   const currentSlideData = heroSlides[currentSlide]
 
   return (
-    <section ref={root} className="relative">
-      <div className="relative h-[70vh] min-h-[500px] max-h-[800px] w-full overflow-hidden">
-        {/* Professional Background Images with Next.js optimizations */}
-        <div className="absolute inset-0">
-          {heroSlides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
-                }`}
-            >
-              <Suspense fallback={
-                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse" />
-              }>
-                <LazyImage
-                  src={imageError[index] ? "/placeholder.svg" : slide.image}
-                  alt={slide.alt}
-                  fill
-                  priority={index === 0}
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-                  quality={90}
-                />
-              </Suspense>
-            </div>
-          ))}
-        </div>
+    <section ref={root} className="relative py-20 hero-section">
+      <div className="container px-6 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
 
-        {/* Professional Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+          {/* Left Side - Image Section */}
+          <div className="relative order-2 lg:order-1">
+            <div className="relative hero-image-container">
+              {/* Main Image */}
+              <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <Suspense fallback={
+                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse rounded-2xl" />
+                }>
+                  <LazyImage
+                    src={imageError[currentSlide] ? "/placeholder.svg" : currentSlideData.image}
+                    alt={currentSlideData.alt}
+                    fill
+                    priority={currentSlide === 0}
+                    className="hero-image object-cover object-center"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={90}
+                  />
+                </Suspense>
 
-        {/* Professional Navigation Arrows with Client's Theme */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 border-2 border-[#F5F5DC]/40 text-[#F5F5DC] hover:bg-[#8B0000]/20 hover:border-[#F5F5DC]/60 transition-all duration-300 flex items-center justify-center backdrop-blur-sm rounded-full group"
-          aria-label="Previous slide"
-        >
-          <FaChevronLeft className="text-xl group-hover:scale-110 transition-transform duration-200" />
-        </button>
+                {/* Image Overlay */}
+                <div className="absolute inset-0 hero-image-overlay" />
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 border-2 border-[#F5F5DC]/40 text-[#F5F5DC] hover:bg-[#8B0000]/20 hover:border-[#F5F5DC]/60 transition-all duration-300 flex items-center justify-center backdrop-blur-sm rounded-full group"
-          aria-label="Next slide"
-        >
-          <FaChevronRight className="text-xl group-hover:scale-110 transition-transform duration-200" />
-        </button>
-
-        {/* Enhanced Main Content */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-5xl">
-            <h1 className="hero-title font-[var(--font-bebas)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wider mb-8 drop-shadow-2xl">
-              {currentSlideData.title}
-            </h1>
-
-            <p className="hero-subtitle text-white/95 text-lg sm:text-xl md:text-2xl font-[var(--font-montserrat)] font-light leading-relaxed max-w-3xl mx-auto mb-10 drop-shadow-lg">
-              {currentSlideData.subtitle}
-            </p>
-
-            <SecurityButton
-              href="/services"
-              variant="primary"
-              size="lg"
-              showLogo={false}
-              className="font-[var(--font-montserrat)] font-bold tracking-wider min-w-[220px]"
-            >
-              MORE DETAILS
-            </SecurityButton>
-
-            {/* Enhanced Stats Section with Different Fonts */}
-            <div className="hero-stats mt-16 flex flex-col sm:flex-row justify-center gap-8 text-white/90">
-              <div className="flex items-center justify-center gap-3 group">
-                <div className="w-3 h-3 bg-[#F5F5DC] rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300"></div>
-                <span className="font-[var(--font-inter)] text-base">
-                  Live Visitors: <span className="font-[var(--font-roboto-slab)] font-bold text-[#F5F5DC] text-lg">{count.toLocaleString()}</span>
-                </span>
+                {/* Loading Indicator for Image Transitions */}
+                {isImageTransitioning && (
+                  <div className="absolute inset-0 bg-[#8B0000]/20 flex items-center justify-center">
+                    <div className="w-8 h-8 hero-loading-spinner rounded-full"></div>
+                  </div>
+                )}
               </div>
-              <div className="flex items-center justify-center gap-3 group">
-                <div className="w-3 h-3 bg-[#556B2F] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-                <span className="font-[var(--font-inter)] text-base">
-                  <span className="font-[var(--font-roboto-slab)] font-bold text-[#556B2F] text-lg">24/7</span> Operations
-                </span>
-              </div>
-              <div className="flex items-center justify-center gap-3 group">
-                <div className="w-3 h-3 bg-[#8B0000] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-                <span className="font-[var(--font-inter)] text-base">
-                  <span className="font-[var(--font-roboto-slab)] font-bold text-[#8B0000] text-lg">ISO 9001:2015</span> Certified
-                </span>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 hero-navigation-arrow backdrop-blur-md flex items-center justify-center rounded-full group shadow-lg"
+                aria-label="Previous slide"
+              >
+                <FaChevronLeft className="text-lg group-hover:scale-110 transition-transform duration-300" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 hero-navigation-arrow backdrop-blur-md flex items-center justify-center rounded-full group shadow-lg"
+                aria-label="Next slide"
+              >
+                <FaChevronRight className="text-lg group-hover:scale-110 transition-transform duration-300" />
+              </button>
+
+              {/* Slide Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                {heroSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => smoothChangeSlide(index)}
+                    className={`w-3 h-3 rounded-full hero-slide-indicator ${index === currentSlide ? "active" : "inactive"
+                      }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Professional Slide Indicators with Client's Theme */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => changeSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                ? "bg-[#F5F5DC] scale-150 shadow-lg"
-                : "bg-[#F5F5DC]/40 hover:bg-[#F5F5DC]/70 hover:scale-125"
-                }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+          {/* Right Side - Content Section */}
+          <div className="order-1 lg:order-2 text-center lg:text-left">
+            <div className="hero-content space-y-8">
+              {/* Main Title */}
+              <h1 className="hero-title text-4xl lg:text-6xl xl:text-7xl leading-tight tracking-wider">
+                {currentSlideData.title}
+              </h1>
+
+              {/* Subtitle */}
+              <p className="hero-subtitle text-lg lg:text-xl xl:text-2xl max-w-2xl mx-auto lg:mx-0">
+                {currentSlideData.subtitle}
+              </p>
+
+              {/* Features List */}
+              <div className="hero-features flex flex-wrap gap-3 justify-center lg:justify-start">
+                {currentSlideData.features.map((feature, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-full text-sm font-[var(--font-inter)] font-medium backdrop-blur-sm"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <div className="hero-button">
+                <SecurityButton
+                  href="/services"
+                  variant="primary"
+                  size="lg"
+                  showLogo={false}
+                  className="font-[var(--font-montserrat)] font-bold tracking-wider min-w-[220px]"
+                >
+                  EXPLORE SERVICES
+                </SecurityButton>
+              </div>
+
+              {/* Stats Section */}
+              <div className="hero-stats grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+                <div className="text-center">
+                  <div className="text-2xl lg:text-3xl font-[var(--font-roboto-slab)] font-bold text-[#8b0000] mb-2">
+                    {count.toLocaleString()}
+                  </div>
+                  <div className="text-sm text-[#2f2f2f] font-[var(--font-inter)]">
+                    Live Visitors
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl lg:text-3xl font-[var(--font-roboto-slab)] font-bold text-[#556B2F] mb-2">
+                    24/7
+                  </div>
+                  <div className="text-sm text-[#2f2f2f] font-[var(--font-inter)]">
+                    Operations
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl lg:text-3xl font-[var(--font-roboto-slab)] font-bold text-[#8b0000] mb-2">
+                    ISO 9001:2015
+                  </div>
+                  <div className="text-sm text-[#2f2f2f] font-[var(--font-inter)]">
+                    Certified
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

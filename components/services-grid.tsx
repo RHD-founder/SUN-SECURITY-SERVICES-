@@ -25,11 +25,11 @@ export default function ServicesGrid() {
     return () => ctx.revert()
   }, [])
   return (
-    <section ref={root} className="py-20 bg-[#819918]/20">
+    <section ref={root} className="py-20 bg-[#EDE2A8]/20">
       <div className="container px-6 mx-auto">
         <div className="flex items-end justify-between gap-4 mb-16">
           <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-bebas)] font-bold tracking-wider text-[#171212]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-bebas)] font-light tracking-wider text-[#171212]">
               Our Services
             </h2>
             <p className="text-[#556B2F] mt-4 text-lg font-[var(--font-montserrat)] leading-relaxed">
@@ -93,7 +93,7 @@ export default function ServicesGrid() {
 
         {/* Service Categories Summary */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-[#8B0000]/10 rounded-full border border-[#8B0000]/20">
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-[#8B0000]/ rounded-full border border-[#8B0000]/20">
             <span className="font-[var(--font-montserrat)] font-semibold text-[#261616] text-lg">
               {services.length} Comprehensive Security Services Available
             </span>

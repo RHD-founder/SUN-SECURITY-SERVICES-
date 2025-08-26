@@ -113,11 +113,12 @@ html {
   --font-playfair: ${playfair.variable};
   --font-roboto-slab: ${robotoSlab.variable};
   --font-montserrat: ${montserrat.variable};
+  --font-system-ui: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
         `}</style>
       </head>
       <body
-        className={`${bebas.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} ${robotoSlab.variable} ${montserrat.variable} font-sans antialiased bg-[#F5F5DC]/20`}
+        className={`${bebas.variable} ${inter.variable} ${poppins.variable} ${playfair.variable} ${robotoSlab.variable} ${montserrat.variable} font-['system-ui'] antialiased bg-[#F5F5DC]/20`}
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
