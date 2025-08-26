@@ -4,10 +4,11 @@ import { services } from "@/lib/content"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 
-type Props = { params: { slug: string } }
+type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props) {
-  const svc = services.find((s) => s.slug === params.slug)
+  const { slug } = await params
+  const svc = services.find((s) => s.slug === slug)
   return {
     title: svc ? `${svc.title} | SUN SECURITY SERVICES` : "Service | SUN SECURITY SERVICES",
     description: svc?.description ?? "Service details",
@@ -15,7 +16,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const svc = services.find((s) => s.slug === params.slug)
+  const { slug } = await params
+  const svc = services.find((s) => s.slug === slug)
   if (!svc) notFound()
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/api/visitors`, { cache: "no-store" }).catch(() => null)
