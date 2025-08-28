@@ -18,9 +18,9 @@ const heroSlides = [
   {
     image: "/4.jpeg",
     title: "Highest Level of Protection",
-    subtitle: "Our officers are perfectly adapted to circumstances with military discipline and professional excellence ensuring maximum security coverage.",
+    subtitle: "Our officers are perfectly adapted to circumstances with Strict Discipline and professional excellence ensuring maximum security coverage.",
     alt: "Large formation of SUN SECURITY SERVICES officers in ceremonial formation",
-    features: ["Military Discipline", "Professional Excellence", "Maximum Security Coverage"]
+    features: ["Strict Discipline", "Professional Excellence", "Maximum Security Coverage"]
   },
   {
     image: "/5.jpeg",

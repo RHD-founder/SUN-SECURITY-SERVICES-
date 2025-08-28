@@ -31,8 +31,18 @@ export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number
                 </Link>
               </li>
               <li>
+                <Link href="/clients" className="hover:underline hover:text-[#8B0000] transition-colors">
+                  Clients
+                </Link>
+              </li>
+              <li>
                 <Link href="/gallery" className="hover:underline hover:text-[#8B0000] transition-colors">
                   Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/certificates" className="hover:underline hover:text-[#8B0000] transition-colors">
+                  Certificates
                 </Link>
               </li>
               <li>

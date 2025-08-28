@@ -16,6 +16,7 @@ const nav = [
   { href: "/services", label: "Services" },
   { href: "/clients", label: "Clients" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/certificates", label: "Certificates" },
 ]
 
 export default function SiteHeader() {

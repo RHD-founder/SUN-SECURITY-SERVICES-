@@ -49,7 +49,7 @@ const images = [
   },
   {
     src: "/sun-security-disciplined-march.png",
-    alt: "Security personnel demonstrating military discipline in marching formation",
+    alt: "Security personnel demonstrating Strict Discipline in marching formation",
   },
   {
     src: "/sun-security-memorial-ceremony.png",

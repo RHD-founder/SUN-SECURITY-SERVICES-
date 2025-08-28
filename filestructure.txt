@@ -5,10 +5,13 @@
     |-- about
         |-- page.tsx
     |-- api
+        |-- certificates
         |-- contact
             |-- route.ts
         |-- visitors
             |-- route.ts
+    |-- certificates
+        |-- page.tsx
     |-- clients
         |-- page.tsx
     |-- contact
@@ -26,6 +29,7 @@
         |-- page-transition.tsx
 |-- components
     |-- awards.tsx
+    |-- certificates-showcase.tsx
     |-- clients-marquee.tsx
     |-- contact-section.tsx
     |-- gallery-grid.tsx
@@ -135,6 +139,13 @@
     |-- 9.jpeg
     |-- apsa-india-chapter.png
     |-- capsi-certification.png
+    |-- cert
+        |-- CAPSI_page-0001.jpg
+        |-- img20250807_17415246.jpg
+        |-- img20250807_17440880.jpg
+        |-- img20250807_17451047.jpg
+        |-- iso_page-0001.jpg
+        |-- New_Doc_08-23-2025_13.02_page-0001.jpg
     |-- iso-9001-bureau-veritas-official.png
     |-- iso-9001-nabcb-certification.png
     |-- iso-bureau-veritas-nabcb.png

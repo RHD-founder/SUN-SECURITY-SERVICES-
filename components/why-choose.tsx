@@ -8,7 +8,7 @@ const items = [
   {
     icon: <FaUserShield />,
     title: "Ex-Servicemen Enterprise",
-    text: "Led by experienced ex-servicemen with military discipline and proven leadership.",
+    text: "Led by experienced ex-servicemen with Strict Discipline and proven leadership.",
   },
   {
     icon: <FaShield />,
