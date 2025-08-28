@@ -36,7 +36,6 @@ export default function Page() {
       <ClientsMarquee />
       <Testimonials />
       <GalleryGrid />
-      <CertificatesShowcase />
       <ContactSection />
       <SiteFooter visitorCount={count} />
     </main>
