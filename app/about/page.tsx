@@ -16,43 +16,65 @@ export default async function Page() {
   return (
     <main>
       <SiteHeader />
-      <section className="relative h-[320px]">
-        <Image
-          src="/placeholder.svg?height=600&width=1600"
-          alt="Security control room"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#8B0000]/80 to-[#556B2F]/70 flex items-center">
-          <div className="container px-6 mx-auto">
-            <h1 className="text-4xl md:text-5xl font-[var(--font-bebas)] text-[#F5F5DC]">About Us</h1>
-            <p className="text-[#F5F5DC]/95 max-w-2xl mt-2">
-              Built on discipline and trust, we deliver corporate-grade protection with zero compromise.
+      <section className="py-16 bg-white">
+        <div className="container px-6 mx-auto">
+          <h1 className="text-4xl md:text-5xl font-[var(--font-bebas)] text-[#8B0000] mb-8 text-center">About Us</h1>
+
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <p className="text-[#556B2F] text-lg leading-relaxed">
+              Sun Security Services was founded in 1999 by Maj Surajit Barman (Retd), an ex-Indian Army
+              officer under the aegis of Directorate General of Resettlement, Ministry of Defence, Government of
+              India. We commenced operations on 16th February 2000 in Manipur and Tripura.
+            </p>
+
+            <p className="text-[#556B2F] text-lg leading-relaxed">
+              Since then, we have established ourselves as a trusted and professional security
+              solutions provider serving the northeast region with a wide range of clients.
+            </p>
+
+            <p className="text-[#556B2F] text-lg leading-relaxed">
+              With our mission to provide quality and reliable services, coupled with relentless focus on
+              innovation and tech-based approaches, we have become a pioneer and leading security services
+              provider in the Northeast Region.
             </p>
           </div>
         </div>
       </section>
       <section className="py-16 bg-[#F5F5DC]/20">
-        <div className="container px-6 mx-auto grid gap-10 lg:grid-cols-2">
-          <div>
+        <div className="container px-6 mx-auto max-w-4xl">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-[var(--font-bebas)] text-[#8B0000]">Our Story</h2>
-            <p className="mt-3 text-[#556B2F]">
-              SUN SECURITY SERVICES was founded with a mission to raise the bar for private security in Assam.
-              From corporate offices to high footfall events, our trained teams operate with clear SOPs, technology
-              integration, and a relentless focus on safety.
-            </p>
-            <p className="mt-3 text-[#556B2F]">
-              We are PSARA-compliant, ISO-conscious, and committed to continual training and improvement.
-            </p>
+            <div className="w-24 h-1 bg-[#8B0000] mx-auto mt-4"></div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Image src="/placeholder.svg?height=360&width=560" alt="Guard training" width={560} height={360} className="rounded-xl border" />
-            <Image src="/placeholder.svg?height=360&width=560" alt="Surveillance monitoring" width={560} height={360} className="rounded-xl border" />
+
+          <div className="space-y-6 text-[#556B2F] leading-relaxed">
+            <p>
+              Maj Surajit Barman (Retd) is a distinguished retired officer of the Indian Army who has made a
+              notable impact in the field of private security industry in the north east. After his military career, he
+              channelled his leadership and operational expertise into the private security sector by starting Sun
+              Security Services in the year 1999 under the aegis of Directorate General of Resettlement (DGR),
+              Ministry of Defence, Govt. of India, with the aim of generating employment for the unemployed
+              youth of the region as well as reemployment opportunities for the local ex-servicemen.
+            </p>
+
+            <p>
+              His experience in the Indian Army brings discipline, strategic insight and operational excellence to Sun
+              Security Services. Under his visionary leadership and guidance, Sun Security Services has grown to be
+              one of the leading service providers of the region. His vision is to elevate the standards of private
+              security industry in the region, focussing on professionalism, reliability and customer satisfaction
+              through high-quality and cost-effective security solutions.
+            </p>
+
+            <div className="bg-white/50 p-6 rounded-lg border-l-4 border-[#8B0000] mt-8">
+              <p className="text-[#8B0000] font-semibold text-center">
+                We are PSARA-compliant, ISO-conscious, and committed to continual training and improvement.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-     
+
 
       <SiteFooter visitorCount={count} />
     </main>
