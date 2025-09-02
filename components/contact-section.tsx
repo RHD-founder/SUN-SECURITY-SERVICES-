@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import SecurityButton from "@/components/ui/security-button"
 import {
-  FaPhone,
+  FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
   FaUser,
@@ -89,7 +89,7 @@ export default function ContactSection() {
                   <div className="space-y-2">
                     <label className="font-[var(--font-poppins)] text-accent-500 font-semibold text-base">Phone Number *</label>
                     <div className="relative">
-                      <FaPhone className="absolute left-3 top-1/2 -translate-y-1/2 text-primary-500 text-lg" />
+                      <FaPhoneAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-primary-500 text-lg" />
                       <Input
                         type="tel"
                         placeholder="Enter your phone number"

@@ -67,7 +67,7 @@ export default async function Page() {
 
             <div className="bg-white/50 p-6 rounded-lg border-l-4 border-[#8B0000] mt-8">
               <p className="text-[#8B0000] font-semibold text-center">
-                We are PSARA-compliant, ISO-conscious, and committed to continual training and improvement.
+                We are PSARA-compliant, quality-conscious and  contineous improvement.
               </p>
             </div>
           </div>

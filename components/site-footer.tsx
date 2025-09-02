@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { BRAND } from "@/lib/content"
-import { FaPhone, FaEnvelope, FaFax } from "react-icons/fa"
+import { FaPhoneAlt, FaEnvelope, FaFax, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa"
 
 export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number }) {
   return (
@@ -56,7 +56,7 @@ export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number
             <div className="font-[var(--font-montserrat)] font-bold text-[#8B0000] text-lg">Contact Info</div>
             <ul className="mt-4 space-y-3 text-[#556B2F] font-system-ui">
               <li className="flex items-start gap-2">
-                <FaPhone className="text-[#8B0000] text-sm mt-1" />
+                <FaPhoneAlt className="text-[#8B0000] text-sm mt-1" />
                 <div className="text-xs space-y-1">
                   {BRAND.phoneNumbers.map((phone, i) => (
                     <div key={i}>{phone}</div>
@@ -72,6 +72,38 @@ export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number
               <li className="flex items-center gap-2">
                 <FaFax className="text-[#8B0000] text-sm" />
                 <span className="text-xs">Fax: {BRAND.fax}</span>
+              </li>
+              <li>
+                <div className="text-xs text-[#556B2F] mb-2">Follow Us:</div>
+                <div className="flex gap-3">
+                  <a
+                    href="https://www.instagram.com/sunsecurityservices/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#8B0000] hover:text-[#556B2F] transition-colors"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <FaInstagram className="text-lg" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/sunsecutiryservice/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#8B0000] hover:text-[#556B2F] transition-colors"
+                    aria-label="Follow us on Facebook"
+                  >
+                    <FaFacebook className="text-lg" />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#8B0000] hover:text-[#556B2F] transition-colors"
+                    aria-label="Follow us on LinkedIn"
+                  >
+                    <FaLinkedin className="text-lg" />
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

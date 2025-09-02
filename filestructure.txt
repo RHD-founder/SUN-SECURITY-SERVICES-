@@ -153,6 +153,7 @@
         |-- aircel.jpeg
         |-- Airport Authority of India.jpeg
         |-- Apollo.jpeg
+        |-- ass.jpeg
         |-- assamoil.jpeg
         |-- axisbank.jpeg
         |-- bankofkarnataka.jpeg

@@ -32,38 +32,8 @@ export const BRAND = {
 
 export const services: Service[] = [
   // Core Security Services
-  {
-    slug: "security-service",
-    title: "Security Service",
-    description:
-      "Comprehensive security solutions with trained ex-servicemen personnel providing professional protection across all sectors.",
-    image: "/sun-security-team-1.png",
-    features: [
-      "24x7 Operations",
-      "Trained Personnel",
-      "Professional Uniforms",
-      "Emergency Response",
-      "Incident Reporting",
-      "Quality Assurance",
-    ],
-    icon: "shield",
-  },
-  {
-    slug: "residential-security",
-    title: "Residential Security",
-    description:
-      "Specialized protection for housing societies, apartments, and private residences with comprehensive safety protocols.",
-    image: "/sun-security-building-march.png",
-    features: [
-      "Perimeter Patrol",
-      "Gate Control",
-      "CCTV Monitoring",
-      "Visitor Management",
-      "Emergency Response",
-      "Community Safety",
-    ],
-    icon: "home",
-  },
+  
+  
   {
     slug: "on-site-guard-service",
     title: "On-Site Guard Service",
@@ -210,22 +180,7 @@ export const services: Service[] = [
     ],
     icon: "store",
   },
-  {
-    slug: "malls-security-service",
-    title: "Malls Security Service",
-    description:
-      "Comprehensive mall security services including surveillance, access control, and specialized retail protection protocols.",
-    image: "/sun-security-march-3.png",
-    features: [
-      "Surveillance Systems",
-      "Access Control",
-      "Retail Protection",
-      "Customer Service",
-      "Loss Prevention",
-      "Emergency Management",
-    ],
-    icon: "shopping-cart",
-  },
+  
   {
     slug: "residence-security",
     title: "Residence Security",
@@ -328,7 +283,7 @@ export const clients = [
   },
   { name: "North East Frontier Railway", logo: "/logos/nefr.jpeg" },
   {
-    name: "Airport Authority of India",
+    name: "Airports Authority of India",
     logo: "/logos/Airport Authority of India.jpeg",
   },
   {
@@ -393,6 +348,10 @@ export const clients = [
   {
     name: "North East Small Finance Bank",
     logo: "/logos/NESFbank.jpeg",
+  },
+  {
+    name: "Assam University",
+    logo: "/logos/ass.jpeg",
   },
 ];
 

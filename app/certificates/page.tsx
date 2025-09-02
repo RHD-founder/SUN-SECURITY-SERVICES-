@@ -6,14 +6,7 @@ import SiteFooter from "@/components/site-footer"
 import { useState } from 'react'
 
 const certificates = [
-    {
-        name: 'CAPSI Certification',
-        file: 'CAPSI_page-0001.jpg'
-    },
-    {
-        name: 'ISO 9001:2015 Certification',
-        file: 'iso_page-0001.jpg'
-    },
+    
     {
         name: 'Professional Security Certificate',
         file: 'img20250807_17440880.jpg'
@@ -29,7 +22,11 @@ const certificates = [
     {
         name: 'Official Security Documentation',
         file: 'New_Doc_08-23-2025_13.02_page-0001.jpg'
-    }
+    },
+    {
+        name: 'CAPSI Certification',
+        file: 'CAPSI_page-0001.jpg'
+    },
 ]
 
 export default function CertificatesPage() {
