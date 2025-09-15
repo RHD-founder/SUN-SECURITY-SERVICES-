@@ -1,5 +1,4 @@
-/* Google Fonts - Load at runtime if available */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap");
+/* Google Fonts - Now loaded via preload in layout.tsx for better performance */
 
 @import "tailwindcss";
 @import "tw-animate-css";

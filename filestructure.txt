@@ -1,3 +1,5 @@
+|-- .env.local
+|-- .env.local.new
 |-- .gitignore
 |-- app
     |-- (with-transition)
@@ -21,6 +23,8 @@
     |-- globals.css
     |-- layout.tsx
     |-- page.tsx
+    |-- security-tips
+        |-- page.tsx
     |-- services
         |-- page.tsx
         |-- [slug]
@@ -98,6 +102,7 @@
     |-- use-mobile.ts
     |-- use-toast.ts
 |-- lib
+    |-- actions
     |-- content.ts
     |-- utils.ts
 |-- middleware.ts
@@ -146,6 +151,7 @@
         |-- img20250807_17451047.jpg
         |-- iso_page-0001.jpg
         |-- New_Doc_08-23-2025_13.02_page-0001.jpg
+    |-- founder.jpg
     |-- iso-9001-bureau-veritas-official.png
     |-- iso-9001-nabcb-certification.png
     |-- iso-bureau-veritas-nabcb.png

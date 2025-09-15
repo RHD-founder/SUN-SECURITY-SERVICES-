@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 
 const images = [
   {
@@ -97,6 +97,8 @@ export default function GalleryGrid() {
           {images.map((img, index) => (
             <button
               key={index}
+              type="button"
+              aria-label={`View ${img.alt}`}
               className="mb-4 block w-full overflow-hidden rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFD700] hover:shadow-lg transition-all duration-300"
               onClick={() => {
                 setActive(img)
@@ -109,6 +111,9 @@ export default function GalleryGrid() {
                 width={640}
                 height={480}
                 className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-300"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
             </button>
           ))}
@@ -116,6 +121,9 @@ export default function GalleryGrid() {
 
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogContent className="max-w-4xl">
+            <DialogTitle className="sr-only">
+              Gallery Image: {active.alt}
+            </DialogTitle>
             <Image
               src={active.src || "/placeholder.svg"}
               alt={active.alt}

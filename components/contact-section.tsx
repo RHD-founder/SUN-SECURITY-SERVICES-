@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa"
 import { BRAND } from "@/lib/content"
 import { useState } from "react"
+// Removed server action import - using API route instead
 
 const Schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -29,6 +30,7 @@ const Schema = z.object({
 
 export default function ContactSection() {
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState("")
   const {
     register,
     handleSubmit,
@@ -40,15 +42,25 @@ export default function ContactSection() {
 
   async function onSubmit(values: z.infer<typeof Schema>) {
     try {
-      await fetch("/api/contact", {
+      setError("")
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       })
-      setSent(true)
-      reset()
-      setTimeout(() => setSent(false), 5000)
-    } catch { }
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSent(true)
+        reset()
+        setTimeout(() => setSent(false), 5000)
+      } else {
+        setError(data.message || "An error occurred. Please try again.")
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again later.")
+    }
   }
 
   return (
@@ -78,7 +90,7 @@ export default function ContactSection() {
                         placeholder="Enter your full name"
                         aria-invalid={!!errors.name}
                         {...register("name")}
-                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-white placeholder-white/70 text-base"
+                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-gray-800 placeholder-white/70 text-base"
                       />
                     </div>
                     {errors.name && (
@@ -95,7 +107,7 @@ export default function ContactSection() {
                         placeholder="Enter your phone number"
                         aria-invalid={!!errors.phone}
                         {...register("phone")}
-                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-white placeholder-white/70 text-base"
+                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-gray-800 placeholder-white/70 text-base"
                       />
                     </div>
                     {errors.phone && (
@@ -114,7 +126,7 @@ export default function ContactSection() {
                         placeholder="Enter your email address"
                         aria-invalid={!!errors.email}
                         {...register("email")}
-                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-white placeholder-white/70 text-base"
+                        className="h-12 pl-10 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-gray-800 placeholder-white/70 text-base"
                       />
                     </div>
                     {errors.email && (
@@ -128,7 +140,7 @@ export default function ContactSection() {
                       placeholder="Security quote request"
                       aria-invalid={!!errors.subject}
                       {...register("subject")}
-                      className="h-12 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-white placeholder-white/70 text-base"
+                      className="h-12 font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all bg-white/20 text-gray-800 placeholder-white/70 text-base"
                     />
                     {errors.subject && (
                       <p className="font-[var(--font-poppins)] text-error-500 text-sm">{errors.subject.message}</p>
@@ -143,7 +155,7 @@ export default function ContactSection() {
                     placeholder="Describe your security requirements, property type, and specific needs..."
                     aria-invalid={!!errors.message}
                     {...register("message")}
-                    className="font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all resize-none bg-white/20 text-white placeholder-white/70 text-base"
+                    className="font-[var(--font-poppins)] border-2 border-accent-500/40 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 rounded-lg transition-all resize-none bg-white/20 text-gray-800 placeholder-white/70 text-base"
                   />
                   {errors.message && (
                     <p className="font-[var(--font-poppins)] text-error-500 text-sm">{errors.message.message}</p>
@@ -151,12 +163,9 @@ export default function ContactSection() {
                 </div>
 
                 <div className="pt-4">
-                  <SecurityButton
-                    onClick={handleSubmit(onSubmit)}
-                    variant="primary"
-                    size="md"
-                    showLogo={false}
-                    className="w-full h-14 font-[var(--font-montserrat)] font-semibold flex items-center justify-center bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-400 hover:to-primary-600 focus:ring-4 focus:ring-primary-500/30 shadow-lg hover:shadow-xl transition-all duration-300"
+                  <button
+                    type="submit"
+                    className="w-full h-14 font-[var(--font-montserrat)] font-semibold flex items-center justify-center bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-400 hover:to-primary-600 focus:ring-4 focus:ring-primary-500/30 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center justify-center gap-2 w-full">
@@ -169,13 +178,21 @@ export default function ContactSection() {
                         Send Quote Request
                       </div>
                     )}
-                  </SecurityButton>
+                  </button>
                 </div>
 
                 {sent && (
                   <div className="p-4 bg-success-500/20 border border-success-500/30 rounded-lg">
                     <p className="font-[var(--font-poppins)] text-success-500 font-semibold text-center">
                       ✅ Quote request sent successfully! We'll contact you within 24 hours.
+                    </p>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="p-4 bg-error-500/20 border border-error-500/30 rounded-lg">
+                    <p className="font-[var(--font-poppins)] text-error-500 font-semibold text-center">
+                      ❌ {error}
                     </p>
                   </div>
                 )}

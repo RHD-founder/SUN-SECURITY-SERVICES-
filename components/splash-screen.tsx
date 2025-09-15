@@ -29,20 +29,14 @@ export default function SplashScreen({ enabled = true }: { enabled?: boolean }) 
       { scaleX: 1, duration: 1.2 }
     )
 
-    // Optional intro sound (very subtle)
-    const audio = new Audio("/audio/intro.mp3")
-    audio.volume = 0.15
-    audio.play().catch(() => {})
-    return () => {
-      audio.pause()
-    }
+    // Audio removed for better performance
   }, [enabled])
 
   if (done) return null
 
   return (
     <div
-      className="splash-root fixed inset-0 z-[9999] flex items-center justify-center bg-[#0A192F]"
+      className="splash-root fixed inset-0 z-[9999] flex items-center justify-center bg-[#8B0000]"
       role="dialog"
       aria-label="Loading"
     >

@@ -28,7 +28,13 @@ export default async function Page({ params }: Props) {
     <main>
       <SiteHeader />
       <section className="relative h-[320px]">
-        <Image src={svc.image || "/placeholder.svg"} alt={svc.title} fill className="object-cover" />
+        <Image
+          src={svc.image || "/placeholder.svg"}
+          alt={svc.title}
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-[#0A192F]/70 flex items-center">
           <div className="container px-6 mx-auto">
             <h1 className="text-4xl md:text-5xl font-[var(--font-bebas)] text-white">{svc.title}</h1>

@@ -57,7 +57,13 @@ export default function ServicesGrid() {
               className="svc group relative rounded-2xl overflow-hidden border border-[#556B2F]/20 bg-white focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition-all duration-300 hover:shadow-xl"
             >
               <div className="relative h-40">
-                <Image src={svc.image || "/placeholder.svg"} alt={svc.title} fill className="object-cover" />
+                <Image
+                  src={svc.image || "/placeholder.svg"}
+                  alt={svc.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                />
               </div>
               <div className="p-5">
                 <h3 className="text-lg font-[var(--font-roboto-slab)] font-bold text-[#171212] mb-2 line-clamp-2">

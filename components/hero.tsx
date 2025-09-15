@@ -322,6 +322,7 @@ export default function Hero() {
                     className="hero-image object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     quality={90}
+                    fetchPriority={currentSlide === 0 ? "high" : "auto"}
                   />
                 </Suspense>
 

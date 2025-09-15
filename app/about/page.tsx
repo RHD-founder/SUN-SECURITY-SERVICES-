@@ -16,30 +16,49 @@ export default async function Page() {
   return (
     <main>
       <SiteHeader />
+
+      {/* About + Founder (text left, image right; stacks on mobile) */}
       <section className="py-16 bg-white">
-        <div className="container px-6 mx-auto">
+        <div className="container px-6 mx-auto max-w-6xl">
           <h1 className="text-4xl md:text-5xl font-[var(--font-bebas)] text-[#8B0000] mb-8 text-center">About Us</h1>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <p className="text-[#556B2F] text-lg leading-relaxed">
-              Sun Security Services was founded in 1999 by Maj Surajit Barman (Retd), an ex-Indian Army
-              officer under the aegis of Directorate General of Resettlement, Ministry of Defence, Government of
-              India. We commenced operations on 16th February 2000 in Manipur and Tripura.
-            </p>
+          <div className="grid gap-10 md:grid-cols-2 items-center">
+            {/* Left: About text */}
+            <div className="space-y-6">
+              <p className="text-[#556B2F] text-lg leading-relaxed text-justify">
+                Sun Security Services was founded in 1999 by Maj Surajit Barman (Retd), an ex-Indian Army
+                officer under the aegis of Directorate General of Resettlement, Ministry of Defence, Government of
+                India. We commenced operations on 16th February 2000 in Manipur and Tripura.
+              </p>
 
-            <p className="text-[#556B2F] text-lg leading-relaxed">
-              Since then, we have established ourselves as a trusted and professional security
-              solutions provider serving the northeast region with a wide range of clients.
-            </p>
+              <p className="text-[#556B2F] text-lg leading-relaxed text-justify">
+                Since then, we have established ourselves as a trusted and professional security
+                solutions provider serving the northeast region with a wide range of clients.
+              </p>
 
-            <p className="text-[#556B2F] text-lg leading-relaxed">
-              With our mission to provide quality and reliable services, coupled with relentless focus on
-              innovation and tech-based approaches, we have become a pioneer and leading security services
-              provider in the Northeast Region.
-            </p>
+              <p className="text-[#556B2F] text-lg leading-relaxed text-justify">
+                With our mission to provide quality and reliable services, coupled with relentless focus on
+                innovation and tech-based approaches, we have become a pioneer and leading security services
+                provider in the Northeast Region.
+              </p>
+            </div>
+
+            {/* Right: Founder image */}
+            <div className="relative w-full md:max-w-md md:ml-auto aspect-[4/5]">
+              <Image
+                src="/founder.jpg"
+                alt="Founder, Maj Surajit Barman (Retd)"
+                fill
+                sizes="(min-width: 768px) 28rem, 100vw"
+                className="object-cover rounded-xl shadow-lg ring-1 ring-black/5"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Existing sections below remain unchanged */}
       <section className="py-16 bg-[#F5F5DC]/20">
         <div className="container px-6 mx-auto max-w-4xl">
           <div className="text-center mb-12">
@@ -48,7 +67,7 @@ export default async function Page() {
           </div>
 
           <div className="space-y-6 text-[#556B2F] leading-relaxed">
-            <p>
+            <p className="text-justify">
               Maj Surajit Barman (Retd) is a distinguished retired officer of the Indian Army who has made a
               notable impact in the field of private security industry in the north east. After his military career, he
               channelled his leadership and operational expertise into the private security sector by starting Sun
@@ -57,7 +76,7 @@ export default async function Page() {
               youth of the region as well as reemployment opportunities for the local ex-servicemen.
             </p>
 
-            <p>
+            <p className="text-justify">
               His experience in the Indian Army brings discipline, strategic insight and operational excellence to Sun
               Security Services. Under his visionary leadership and guidance, Sun Security Services has grown to be
               one of the leading service providers of the region. His vision is to elevate the standards of private
@@ -73,8 +92,6 @@ export default async function Page() {
           </div>
         </div>
       </section>
-
-
 
       <SiteFooter visitorCount={count} />
     </main>

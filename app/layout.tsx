@@ -4,14 +4,14 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 
-// Fallback font variables using system fonts instead of Google Fonts
+// Optimized font variables using system fonts for better performance
 const fontVariables = {
-  "--font-bebas": "Bebas Neue, Impact, 'Arial Black', sans-serif",
-  "--font-inter": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-  "--font-poppins": "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-  "--font-playfair": "'Playfair Display', Georgia, 'Times New Roman', serif",
-  "--font-roboto-slab": "'Roboto Slab', Georgia, 'Times New Roman', serif",
-  "--font-montserrat": "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-bebas": "Impact, 'Arial Black', sans-serif",
+  "--font-inter": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-poppins": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  "--font-playfair": "Georgia, 'Times New Roman', serif",
+  "--font-roboto-slab": "Georgia, 'Times New Roman', serif",
+  "--font-montserrat": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   "--font-system-ui": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
 }
 
@@ -93,6 +93,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to Google Fonts for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+          as="style"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap';
+              document.head.appendChild(link);
+            `,
+          }}
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap"
+          />
+        </noscript>
+
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
