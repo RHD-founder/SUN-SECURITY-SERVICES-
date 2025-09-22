@@ -218,17 +218,7 @@ export const awards = [
     proof: "#",
     category: "membership",
   },
-  {
-    year: "2021",
-    title: "ISO 9001:2015 Certified",
-    organization: "Bureau Veritas",
-    accreditation: "NABCB Accredited",
-    description:
-      "National Accreditation Board for Certification Bodies accredited ISO 9001:2015 certification, demonstrating compliance with Indian national quality standards and regulations.",
-    image: "/iso-9001-nabcb-certification.png",
-    proof: "#",
-    category: "certification",
-  },
+  
 ];
 
 export const clients = [
