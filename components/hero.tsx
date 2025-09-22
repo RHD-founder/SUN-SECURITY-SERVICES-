@@ -16,28 +16,28 @@ const LazyImage = dynamic(() => import('./lazy-image'), {
 
 const heroSlides = [
   {
-    image: "/4.jpeg",
+    image: "/IMG-20201029-WA0002.jpg",
     title: "Highest Level of Protection",
     subtitle: "Our officers are perfectly adapted to circumstances with Strict Discipline and professional excellence ensuring maximum security coverage.",
     alt: "Large formation of SUN SECURITY SERVICES officers in ceremonial formation",
     features: ["Strict Discipline", "Professional Excellence", "Maximum Security Coverage"]
   },
   {
-    image: "/5.jpeg",
+    image: "/DSC_7389.JPG",
     title: "Elite Corporate Security",
     subtitle: "Disciplined ex-servicemen personnel providing comprehensive security solutions with military precision and unwavering commitment to safety.",
     alt: "SUN SECURITY SERVICES team marching in professional formation",
     features: ["Ex-Servicemen Personnel", "Military Precision", "Comprehensive Solutions"]
   },
   {
-    image: "/3.jpeg",
+    image: "/DSC00973.JPG",
     title: "Professional Excellence",
     subtitle: "Two decades of trusted security services with trained professionals delivering superior protection across Northeast India.",
     alt: "Security personnel marching in formation in front of modern building",
     features: ["Two Decades Experience", "Trained Professionals", "Northeast Coverage"]
   },
   {
-    image: "/23.jpeg",
+    image: "/WP_20170815_014.jpg",
     title: "Advanced Security Solutions",
     subtitle: "State-of-the-art security infrastructure combined with highly trained personnel ensuring comprehensive protection for your assets.",
     alt: "Modern security operations center with professional staff",

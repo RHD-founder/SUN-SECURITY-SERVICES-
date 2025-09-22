@@ -81,6 +81,51 @@ const images = [
     src: "/sun-security-parade-formation.png",
     alt: "Residential security patrol and monitoring",
   },
+  {
+    src: "/IMG_20201108_140444.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/IMG-20201029-WA0002.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/IMG-20201029-WA0006.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/IMG-20201127-WA0004.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/IMG-20201127-WA0009.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/WP_20170815_003.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/WP_20170815_014.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/WP_20170815_015.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/DSC00973.JPG",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/DSC00980.JPG",
+    alt: "Residential security patrol and monitoring",
+  },
+  {
+    src: "/DSLR-1601800136747.jpg",
+    alt: "Residential security patrol and monitoring",
+  },
+
 ]
 
 export default function GalleryGrid() {
