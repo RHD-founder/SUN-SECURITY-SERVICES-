@@ -42,10 +42,10 @@ export default function SplashScreen({ enabled = true }: { enabled?: boolean }) 
     >
       <div className="text-center text-white px-6">
         <div className="splash-logo text-4xl sm:text-6xl font-[var(--font-bebas)] tracking-[0.05em]">
-          SUN SECURITY SERVICES
+          SUN SECURITY SERVICES™
         </div>
         <div className="splash-sub mt-3 text-sm sm:text-base text-[#FFD700]/90">
-          Premium protection. Absolute reliability.
+          Where Vigilance meets commitment.
         </div>
         <div className="bar mx-auto mt-6 h-0.5 w-40 bg-[#FFD700]/90 rounded-full" />
       </div>

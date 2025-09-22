@@ -27,12 +27,12 @@ const heroSlides = [
     title: "Elite Corporate Security",
     subtitle: "Disciplined ex-servicemen personnel providing comprehensive security solutions with military precision and unwavering commitment to safety.",
     alt: "SUN SECURITY SERVICES team marching in professional formation",
-    features: ["Ex-Servicemen Personnel", "Military Precision", "Comprehensive Solutions"]
+    features: ["Ex-Servicemen Personnel", "Comprehensive Solutions"]
   },
   {
     image: "/DSC00973.JPG",
     title: "Professional Excellence",
-    subtitle: "Two decades of trusted security services with trained professionals delivering superior protection across Northeast India.",
+    subtitle: "25⁺ Years of Experience trusted security services with trained professionals delivering superior protection across Northeast India.",
     alt: "Security personnel marching in formation in front of modern building",
     features: ["Two Decades Experience", "Trained Professionals", "Northeast Coverage"]
   },

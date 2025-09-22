@@ -27,10 +27,7 @@ const images = [
   },
 
   // New parade and formation images
-  {
-    src: "/sun-security-parade-formation.png",
-    alt: "SUN SECURITY SERVICES personnel in ceremonial parade formation with Indian flag",
-  },
+  
   {
     src: "/sun-security-team-group-photo.png",
     alt: "Professional group photograph of SUN SECURITY SERVICES team in indoor setting",
@@ -43,40 +40,22 @@ const images = [
     src: "/sun-security-building-march.png",
     alt: "Security team marching in perfect formation in front of institutional building",
   },
-  {
-    src: "/sun-security-courtyard-formation.png",
-    alt: "Professional security personnel assembled in courtyard formation",
-  },
+  
   {
     src: "/sun-security-disciplined-march.png",
     alt: "Security personnel demonstrating Strict Discipline in marching formation",
   },
-  {
-    src: "/sun-security-memorial-ceremony.png",
-    alt: "SUN SECURITY SERVICES participating in memorial ceremony with officials",
-  },
+  
   {
     src: "/sun-security-road-march.png",
     alt: "Security personnel marching in formation along institutional pathway",
   },
 
   // Operations and facilities
-  {
-    src: "/sun-security-parade-formation.png",
-    alt: "Professional security monitoring and surveillance operations",
-  },
-  {
-    src: "/sun-security-parade-formation.png",
-    alt: "Security training and development programs",
-  },
-  {
-    src: "/sun-security-parade-formation.png",
-    alt: "Corporate security deployment and operations",
-  },
-  {
-    src: "/sun-security-memorial-ceremony.png",
-    alt: "Event security management and crowd control",
-  },
+  
+  
+  
+  
   {
     src: "/sun-security-parade-formation.png",
     alt: "Residential security patrol and monitoring",

@@ -98,22 +98,7 @@ export const services: Service[] = [
     ],
     icon: "user-check",
   },
-  {
-    slug: "commercial-security",
-    title: "Commercial Security",
-    description:
-      "End-to-end security solutions for offices, retail spaces, and commercial establishments with integrated technology.",
-    image: "/10.jpeg",
-    features: [
-      "Office Security",
-      "Retail Protection",
-      "Access Control",
-      "Surveillance Integration",
-      "Business Continuity",
-      "Compliance Management",
-    ],
-    icon: "building",
-  },
+  
 
   // Allied Services
   {
@@ -197,38 +182,8 @@ export const services: Service[] = [
     ],
     icon: "house",
   },
-  {
-    slug: "safe-and-secure",
-    title: "Safe And Secure",
-    description:
-      "Holistic security solutions combining physical security, technology integration, and comprehensive risk management.",
-    image: "/23.jpeg",
-    features: [
-      "Risk Assessment",
-      "Technology Integration",
-      "Physical Security",
-      "Monitoring Systems",
-      "Threat Analysis",
-      "Security Consulting",
-    ],
-    icon: "shield-check",
-  },
-  {
-    slug: "security-guard",
-    title: "Security Guard",
-    description:
-      "Professional security guard services with trained, uniformed personnel providing reliable protection and peace of mind.",
-    image: "/sun-security-team-1.png",
-    features: [
-      "Trained Guards",
-      "Professional Uniforms",
-      "Reliable Service",
-      "Background Checks",
-      "Regular Training",
-      "Quality Standards",
-    ],
-    icon: "user-shield",
-  },
+  
+  
 ];
 
 export const awards = [

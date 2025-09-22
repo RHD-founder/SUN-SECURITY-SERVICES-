@@ -11,7 +11,7 @@ export default function ClientsMarquee() {
       <div className="container px-6 mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-[var(--font-roboto-slab)] font-normal tracking-wide">
-            Trusted by 30+ Clients
+            Trusted by 60+ Clients
           </h2>
           <p className="text-white/80 mt-4 text-lg font-[var(--font-poppins)]">
             Partners across finance, retail, technology, and public sector throughout Northeast India.
