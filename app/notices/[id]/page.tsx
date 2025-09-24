@@ -5,12 +5,17 @@ import SiteHeader from "@/components/site-header"
 import { getAllNotices } from "@/lib/notices"
 import { notFound } from "next/navigation"
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
     return getAllNotices().map((n) => ({ id: n.id }))
 }
 
-export default function NoticeDetail({ params }: { params: { id: string } }) {
-    const notice = getAllNotices().find((n) => n.id === params.id)
+export default async function NoticeDetail({
+    params,
+}: {
+    params: Promise<{ id: string }>
+}) {
+    const { id } = await params
+    const notice = getAllNotices().find((n) => n.id === id)
     if (!notice) return notFound()
 
     return (
