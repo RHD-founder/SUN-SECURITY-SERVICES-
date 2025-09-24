@@ -45,7 +45,7 @@ export default function Awards() {
         </div>
 
         {/* Four Card Layout - 2x2 Grid on larger screens */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
           {awards.map((award, i) => (
             <div key={i} className="award-card group relative">
               <div className="rounded-2xl border bg-white p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full min-h-[420px] flex flex-col">

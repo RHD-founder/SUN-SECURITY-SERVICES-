@@ -161,6 +161,7 @@
     |-- DSC00980.JPG
     |-- DSC_7389.JPG
     |-- DSLR-1601800136747.jpg
+    |-- favicon.ico
     |-- founder.jpg
     |-- IMG-20201029-WA0002.jpg
     |-- IMG-20201029-WA0006.jpg

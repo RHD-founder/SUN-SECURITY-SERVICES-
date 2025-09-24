@@ -33,7 +33,7 @@ export default function Testimonials() {
         <div className="mt-8 max-w-3xl">
           <div className="card rounded-xl border bg-white p-6 shadow-sm">
             <div className="flex items-center gap-4">
-              <Image src={t.image || "/placeholder.svg"} alt={`${t.name} avatar`} width={56} height={56} className="rounded-full" />
+              
               <div>
                 <div className="font-semibold text-[#0A192F]">{t.name}</div>
                 <div className="text-xs text-gray-600">{t.role}</div>

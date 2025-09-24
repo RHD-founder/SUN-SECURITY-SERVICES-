@@ -32,13 +32,11 @@ export const BRAND = {
 
 export const services: Service[] = [
   // Core Security Services
-  
-  
+
   {
     slug: "manned-guarding",
     title: "Manned Guarding",
-    description:
-      "",
+    description: "",
     image: "/sun-security-team-5.jpeg",
     // features: [
     //   "Dedicated Guards",
@@ -53,8 +51,7 @@ export const services: Service[] = [
   {
     slug: "technology-drivensurveillance",
     title: "Technology Driven Surveillance",
-    description:
-      "",
+    description: "",
     image: "/16.jpeg",
     // features: [
     //   "Crowd Control",
@@ -69,11 +66,10 @@ export const services: Service[] = [
   {
     slug: "mobile-and-patrol-servces",
     title: "Mobile & Patrol Services",
-    description:
-      "",
+    description: "",
     image: "/7.jpeg",
     // features: [
-    //   "Asset Protection",
+    //   "Secure & Vigilant,
     //   "Inventory Security",
     //   "Loading Bay Control",
     //   "CCTV Surveillance",
@@ -85,8 +81,7 @@ export const services: Service[] = [
   {
     slug: "risk-assessment-and-consulting",
     title: "Risk Assessment and Consulting",
-    description:
-      "",
+    description: "",
     image: "/sun-security-team-3.png",
     // features: [
     //   "Personal Protection",
@@ -98,14 +93,12 @@ export const services: Service[] = [
     // ],
     icon: "user-check",
   },
-  
 
   // Allied Services
   {
     slug: "specialised-protection",
     title: "Specialised Protection",
-    description:
-      "",
+    description: "",
     image: "/sun-security-team-2.png",
     // features: [
     //   "Facility Management",
@@ -120,8 +113,7 @@ export const services: Service[] = [
   {
     slug: "emergency-and-support-services",
     title: "Emergency And Support Services",
-    description:
-      "",
+    description: "",
     image: "/19.jpeg",
     // features: [
     //   "Advanced Technology",
@@ -136,8 +128,7 @@ export const services: Service[] = [
   {
     slug: "employee-safety-training",
     title: "Employee Safety Training",
-    description:
-      "",
+    description: "",
     image: "/sun-security-march-2.png",
     // features: [
     //   "Rapid Response",
@@ -152,8 +143,7 @@ export const services: Service[] = [
   {
     slug: "facility-management",
     title: "Facility Management",
-    description:
-      "",
+    description: "",
     image: "/sun-security-building-march.png",
     // features: [
     //   "Crowd Management",
@@ -165,10 +155,6 @@ export const services: Service[] = [
     // ],
     icon: "store",
   },
-  
-  
-  
-  
 ];
 
 export const awards = [
@@ -291,20 +277,20 @@ export const testimonials = [
     role: "Facility Manager, NorthEast Bank",
     rating: 5,
     text: "Professional, punctual, and proactive. SUN SECURITY delivers consistently excellent protection for our branches.",
-    image: "/placeholder.svg?height=96&width=96",
+    
   },
   {
     name: "Priya Das",
     role: "Operations Head, Assam Mall",
     rating: 5,
     text: "Their event security team handled a festival rush flawlessly. Exceptional crowd management and safety.",
-    image: "/placeholder.svg?height=96&width=96",
+    
   },
   {
     name: "Rakesh Singh",
     role: "Society President",
     rating: 4,
     text: "Reliable guards and swift response. Our residents feel safe and supported around the clock.",
-    image: "/placeholder.svg?height=96&width=96",
+  
   },
 ];

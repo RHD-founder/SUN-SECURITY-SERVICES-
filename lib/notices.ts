@@ -35,18 +35,18 @@ const NOTICES_DATA: Notice[] = [
     dismissible: true,
     priority: 50,
   },
-  {
-    id: "n-urgent",
-    title: "Urgent: Immediate action required",
-    body: "This urgent notice may open as a pop-up depending on your UI gate.",
-    href: "/notices/n-urgent",
-    severity: "urgent",
-    startAt: new Date(Date.now() - 60_000).toISOString(),
-    endAt: new Date(Date.now() + 48 * 3600_000).toISOString(),
-    dismissible: false,
-    priority: 100,
-    requireModal: true,
-  },
+  // {
+  //   id: "n-urgent",
+  //   title: "Urgent: Immediate action required",
+  //   body: "This urgent notice may open as a pop-up depending on your UI gate.",
+  //   href: "/notices/n-urgent",
+  //   severity: "urgent",
+  //   startAt: new Date(Date.now() - 60_000).toISOString(),
+  //   endAt: new Date(Date.now() + 48 * 3600_000).toISOString(),
+  //   dismissible: false,
+  //   priority: 100,
+  //   requireModal: true,
+  // },
 ];
 
 const isActive = (n: Notice, now: Date) => {

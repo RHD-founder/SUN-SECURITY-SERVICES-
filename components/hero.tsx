@@ -18,14 +18,14 @@ const heroSlides = [
   {
     image: "/IMG-20201029-WA0002.jpg",
     title: "Highest Level of Protection",
-    subtitle: "Our officers are perfectly adapted to circumstances with Strict Discipline and professional excellence ensuring maximum security coverage.",
+    subtitle: "Our officers are perfectly adapted to circumstances with your trusted shield and professional excellence ensuring maximum security coverage.",
     alt: "Large formation of SUN SECURITY SERVICES officers in ceremonial formation",
-    features: ["Strict Discipline", "Professional Excellence", "Maximum Security Coverage"]
+    features: ["Your Trusted Shield", "Professional Excellence", "Maximum Security Coverage"]
   },
   {
     image: "/DSC_7389.JPG",
     title: "Elite Corporate Security",
-    subtitle: "Disciplined ex-servicemen personnel providing comprehensive security solutions with military precision and unwavering commitment to safety.",
+    subtitle: "Disciplined ex-servicemen personnel providing comprehensive security solutions with protection without pause and unwavering commitment to safety.",
     alt: "SUN SECURITY SERVICES team marching in professional formation",
     features: ["Ex-Servicemen Personnel", "Comprehensive Solutions"]
   },
@@ -41,7 +41,7 @@ const heroSlides = [
     title: "Advanced Security Solutions",
     subtitle: "State-of-the-art security infrastructure combined with highly trained personnel ensuring comprehensive protection for your assets.",
     alt: "Modern security operations center with professional staff",
-    features: ["Modern Infrastructure", "Highly Trained Staff", "Asset Protection"]
+    features: ["Modern Infrastructure", "Highly Trained Staff", "Secure & Vigilant"]
   },
 ]
 

@@ -162,7 +162,7 @@ export default function ContactSection() {
                   )}
                 </div>
 
-                <div className="pt-4">
+                <div className=" border-1 bg-amber-300">
                   <button
                     type="submit"
                     className="w-full h-14 font-[var(--font-montserrat)] font-semibold flex items-center justify-center bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-400 hover:to-primary-600 focus:ring-4 focus:ring-primary-500/30 shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg"
