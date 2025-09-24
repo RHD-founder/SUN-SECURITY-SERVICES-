@@ -43,14 +43,14 @@ export default async function Page({ params }: Props) {
         </div>
       </section>
       <section className="py-16 bg-white">
-        <div className="container px-6 mx-auto">
+        {/* <div className="container px-6 mx-auto">
           <h2 className="text-2xl font-semibold text-[#0A192F]">Key Features</h2>
           <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {(svc.features ?? ["24x7 Operations", "SOP-led", "Trained Team"]).map((f) => (
               <li key={f} className="rounded-lg border p-3 text-gray-700">{f}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </section>
       <SiteFooter visitorCount={count} />
     </main>

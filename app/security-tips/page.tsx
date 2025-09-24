@@ -1,6 +1,28 @@
-import SiteHeader from "@/components/site-header";
-import SiteFooter from "@/components/site-footer";
-import { CheckIcon } from "@heroicons/react/24/solid";
+import SiteHeader from "@/components/site-header"
+import SiteFooter from "@/components/site-footer"
+import { CheckIcon } from "@heroicons/react/24/solid"
+import {
+    Accordion,
+    AccordionItem,
+    AccordionTrigger,
+    AccordionContent,
+} from "@/components/ui/accordion"
+
+// Helper list renderer
+function TipsList({ items }: { items: string[] }) {
+    return (
+        <ul className="space-y-4 mt-2">
+            {items.map((tip, i) => (
+                <li key={i} className="flex items-start gap-3">
+                    <div className="mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center shrink-0">
+                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
+                    </div>
+                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
+                </li>
+            ))}
+        </ul>
+    )
+}
 
 export default function SecurityTipsPage() {
     const personalSafetyTips = [
@@ -22,8 +44,9 @@ export default function SecurityTipsPage() {
         "Report any suspicious person or activity to the proper authorities like building security or manager or any policemen in view.",
         "Be aware of the emergency exits or escape routes in the building.",
         "If walking on the main road, walk on that side of the road where you can see the traffic approaching you from front and not from behind.",
-        "Wear reflective clothing so that drivers can see you as you cross the street."
-    ];
+        "Wear reflective clothing so that drivers can see you as you cross the street.",
+    ]
+
     const carSafetyTips = [
         "Lock your doors immediately after entering or leaving your car.",
         "Park in safe areas, making sure there is adequate lighting and that your car is in public view. When you park, look around for suspicious persons or vehicles near your car.",
@@ -36,8 +59,9 @@ export default function SecurityTipsPage() {
         "If you think you are being followed, drive to a public place or to the nearest police station.",
         "If your car breaks down, open the hood, if there is one and switch on the hazard or distress lights. If someone stops to help, stay in the locked car, roll down the window a little and ask them to call the police or a tow trucking service.",
         "Don’t stop to aid motorists stopped on the side of the road. Go to a phone and request help for them.",
-        "Don't pick up hitchhikers. Don't give a lift to unknown persons."
-    ];
+        "Don't pick up hitchhikers. Don't give a lift to unknown persons.",
+    ]
+
     const homeSafetyTips = [
         "Have your keys of the main door ready before you get to the door. Look back before entering your building or home. If you live in an apartment, close the lobby door behind you, especially if a stranger is approaching. Do not hold the door open for strangers. Make all visitors and delivery persons use the doorbell.",
         "When placing your name on mailboxes or on your bell, use only the last name, e.g., ‘Baruas’, ‘Mahantas’ etc.",
@@ -46,8 +70,9 @@ export default function SecurityTipsPage() {
         "Be discreet. Don't advertise or publicize your social life or vacation particulars/details on social media platforms. It’s perfectly fine to keep some things for yourself.",
         "Avoid leaving telltale signs of no one being at home if staying out for more than one day, like leaving clothes hanging on the clothesline or piling up of newspapers near the main door. If you are going to stay outside your home for some days, inform the newspaper vendor that you’ll not be requiring the newspaper for those few days.",
         "If possible, installation of smart security cameras and burglar alarms are good investments for home security.",
-        "If a certain situation demands that someone must stay all alone in the house even if for short durations and if some kind of threat is perceived, it’ll be a good idea to leave an impression outside the main door like leaving a few pairs of footwear of different sizes outside the main door. This will make it seem like multiple people are in the house."
-    ];
+        "If a certain situation demands that someone must stay all alone in the house even if for short durations and if some kind of threat is perceived, it’ll be a good idea to leave an impression outside the main door like leaving a few pairs of footwear of different sizes outside the main door. This will make it seem like multiple people are in the house.",
+    ]
+
     const childSafetyTips = [
         "Always ensure that children are supervised by a responsible adult, especially in public places or near potential hazards like water bodies, roads, or playgrounds.",
         "Teach children about personal safety, including how to recognize and avoid dangerous situations, and the importance of saying 'no' to strangers or uncomfortable situations.",
@@ -62,8 +87,9 @@ export default function SecurityTipsPage() {
         "Make sure you know where each of your children is at all times. Know your children’s friends and be clear with your children about the places and homes they may visit. Make it a rule that your children check in with you when they arrive at or depart from a particular location and when there is a change in plans.",
         "Children should never be left unsupervised or allowed to spend time alone or with others in a vehicle, as the potential dangers to their safety outweigh any of their perceived convenience or fun.",
         "Be sensitive to any changes in your children’s behavior or attitude. Encourage open communication with them and learn how to be an active listener. Look and listen to small indications or clues that something may be troubling your children, because children are not always comfortable disclosing disturbing events or feelings. Listen compassionately to their concern, and work with them to get the help they need to resolve the problem.",
-        "Remember that there is no substitute for your attention and supervision. Being available and taking time to really know and listen to your children helps build feelings of safety and security."
-    ];
+        "Remember that there is no substitute for your attention and supervision. Being available and taking time to really know and listen to your children helps build feelings of safety and security.",
+    ]
+
     const earthquakeTips = {
         precautions: [
             "Fix shelves to walls and remove heavy items from above head level so that they don’t topple over and cause injury during an earthquake.",
@@ -73,7 +99,7 @@ export default function SecurityTipsPage() {
             "Ensure overhead fixtures are secure and keep heavy items clear of exits.",
             "Use plastic containers instead of glass or store glass on lower shelves.",
             "Expect loss of electricity and water after a major earthquake; emergency services may be unavailable for several days.",
-            "Store emergency supplies like water, food, first-aid kit, medicines, tools, portable radio, flashlight, batteries, blankets, fire extinguisher, etc."
+            "Store emergency supplies like water, food, first-aid kit, medicines, tools, portable radio, flashlight, batteries, blankets, fire extinguisher, etc.",
         ],
         during: [
             "Remain calm and assist others in maintaining composure.",
@@ -86,7 +112,7 @@ export default function SecurityTipsPage() {
             "Refrain from lighting candles, gas stoves, or cigarettes to prevent fire hazards due to potential gas leaks.",
             "Turn off the gas supply at its source.",
             "Release pets or domestic animals from enclosures if it is safe to do so.",
-            "Maintain composure and avoid panic regardless of the intensity of the tremor."
+            "Maintain composure and avoid panic regardless of the intensity of the tremor.",
         ],
         post: [
             "Check for injuries.",
@@ -102,9 +128,10 @@ export default function SecurityTipsPage() {
             "If trapped inside a collapsed building, wait for assistance and remain calm.",
             "Use a stick or pole to check for signs of life inside collapsed structures.",
             "Do not spread or react to unverified information.",
-            "Turn on the radio and listen for official announcements."
-        ]
-    };
+            "Turn on the radio and listen for official announcements.",
+        ],
+    }
+
     const fireHazardTips = {
         precautions: [
             "Install smoke alarms. Place smoke alarms on every level of a multi-storey building near potential fire-causing sources.",
@@ -119,24 +146,24 @@ export default function SecurityTipsPage() {
             "Clean out storage areas. Do not let trash such as old newspapers, magazines, or polythene bags accumulate.",
             "Install fire extinguishers at your residence and read the instructions on the labels carefully. Teach family members how to use them.",
             "Consider installing an automatic fire sprinkler system in your residence if possible.",
-            "Ask your local fire department to inspect your residence/building for fire safety and prevention."
+            "Ask your local fire department to inspect your residence/building for fire safety and prevention.",
         ],
         flammableItems: [
             "Flammable liquids should be stored in appropriate containers in well-ventilated storage areas.",
             "Smoking near flammable liquids should be strictly prohibited.",
             "All rags or materials soaked with flammable liquids must be disposed of safely after use; place them outdoors in a metal container.",
-            "Chimneys should be properly insulated and equipped with spark arresters at the top. The chimney elevation must be at least three feet above the roofline. Remove any tree branches overhanging or surrounding the chimney area."
+            "Chimneys should be properly insulated and equipped with spark arresters at the top. The chimney elevation must be at least three feet above the roofline. Remove any tree branches overhanging or surrounding the chimney area.",
         ],
         heatingSources: [
             "Use alternative heat sources with caution.",
             "Keep heaters at least three feet from flammable items; insulate the floor and nearby wall surfaces.",
             "Use only the type of fuel designated for your unit and always follow the manufacturer’s instructions.",
             "Store ashes outside in a metal container.",
-            "Keep open flames away from walls, furniture, drapery, and other flammable items."
+            "Keep open flames away from walls, furniture, drapery, and other flammable items.",
         ],
         matchesSmoking: [
             "Keep matches and lighters away from children, preferably in a locked cabinet.",
-            "Never smoke in bed or when drowsy or medicated."
+            "Never smoke in bed or when drowsy or medicated.",
         ],
         electricalWiring: [
             "Have the electrical wiring in your residence checked by a certified electrician at regular intervals.",
@@ -144,7 +171,7 @@ export default function SecurityTipsPage() {
             "Make sure outlets have cover plates and no exposed wiring.",
             "Make sure wiring does not run under rugs, over nails, or across high-footfall areas.",
             "Do not overload extension cords or outlets. If you need to plug in multiple appliances, use a unit with built-in circuit breakers to prevent sparks and short circuits.",
-            "Make sure insulation does not touch bare electrical wiring."
+            "Make sure insulation does not touch bare electrical wiring.",
         ],
         during: [
             "If your clothes catch fire, stop, drop, and roll until the fire is extinguished. Running makes clothes burn faster.",
@@ -155,250 +182,143 @@ export default function SecurityTipsPage() {
             "The window can be your best escape option. If you cannot escape, hang a white or light-colored sheet outside the window to alert firefighters to your presence.",
             "Crawl low under smoke to your exit; heavy smoke and poisonous gases collect first along the ceiling.",
             "Close doors behind you as you escape if you can, to delay the spread of fire.",
-            "Do not re-enter once you have escaped. Call the local fire department."
+            "Do not re-enter once you have escaped. Call the local fire department.",
         ],
         after: [
             "If you are with burn victims, or are a burn victim yourself, cool and cover burns to reduce chances of further injury or infection.",
             "Go to the nearest medical establishment for help.",
             "If you detect heat or smoke when entering a damaged building, evacuate immediately.",
-            "If you have a safe or strong box, do not try to open it. It can hold intense heat for several hours; opening it before it cools can cause the contents to burst into flames."
-        ]
-    };
-
-
+            "If you have a safe or strong box, do not try to open it. It can hold intense heat for several hours; opening it before it cools can cause the contents to burst into flames.",
+        ],
+    }
 
     return (
         <>
             <SiteHeader />
 
-            <main className="min-h-screen p-10 max-w-6xl mx-auto space-y-12">
+            <main className="min-h-screen p-10 max-w-6xl mx-auto space-y-8">
                 <h1 className="text-3xl font-bold text-[#8B0000]">General Security Tips for Citizens</h1>
                 <p className="mt-2 text-lg text-[#556B2F] leading-relaxed text-justify">
                     Staying safe and secure in your daily life requires a combination of awareness, preparedness, and common sense.
-                    Here are some general security tips to help protect yourself, your loved ones, and your belongings. These tips can
-                    help you avoid becoming a victim of a crime when you are out or at work. By taking a few simple precautions, you
-                    can reduce the risk to yourself and also discourage those who commit crime.
                 </p>
 
-                {/* Personal Safety Box */}
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Personal Safety</h2>
-                    <ul className="space-y-4">
-                        {personalSafetyTips.map((tip, idx) => (
-                            <li key={idx} className="flex items-start gap-4">
-                                {/* Checkbox */}
-                                <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                    <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                </div>
-                                {/* Tip text */}
-                                <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">
-                                    {tip}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                </section >
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Car Safety</h2>
-                    <ul className="space-y-4">
-                        {carSafetyTips.map((tip, idx) => (
-                            <li key={idx} className="flex items-start gap-4">
-                                {/* Checkbox */}
-                                <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                    <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                </div>
-                                {/* Tip text */}
-                                <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">
-                                    {tip}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Home Safety</h2>
-                    <ul className="space-y-4">
-                        {homeSafetyTips.map((tip, idx) => (
-                            <li key={idx} className="flex items-start gap-4">
-                                {/* Checkbox */}
-                                <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                    <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                </div>
-                                {/* Tip text */}
-                                <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">
-                                    {tip}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Child Safety</h2>
-                    <ul className="space-y-4">
-                        {childSafetyTips.map((tip, idx) => (
-                            <li key={idx} className="flex items-start gap-4">
-                                {/* Checkbox */}
-                                <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                    <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                </div>
-                                {/* Tip text */}
-                                <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">
-                                    {tip}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Earthquake Safety</h2>
+                {/* Root accordion: multiple sections can stay open */}
+                <Accordion type="multiple" defaultValue={["personal"]} className="w-full">
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Precautions</h3>
-                        <ul className="space-y-4">
-                            {earthquakeTips.precautions.map((tip, idx) => (
-                                <li key={`eq-pre-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <AccordionItem value="personal">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Personal Safety</AccordionTrigger>
+                        <AccordionContent>
+                            <TipsList items={personalSafetyTips} />
+                        </AccordionContent>
+                    </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">During Earthquake</h3>
-                        <ul className="space-y-4">
-                            {earthquakeTips.during.map((tip, idx) => (
-                                <li key={`eq-during-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <AccordionItem value="car">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Car Safety</AccordionTrigger>
+                        <AccordionContent>
+                            <TipsList items={carSafetyTips} />
+                        </AccordionContent>
+                    </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Post Earthquake</h3>
-                        <ul className="space-y-4">
-                            {earthquakeTips.post.map((tip, idx) => (
-                                <li key={`eq-post-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </section>
-                
-                <section className="space-y-6 p-6 ">
-                    <h2 className="text-2xl font-semibold text-[#8B0000] mb-4">Fire Hazard Safety</h2>
+                    <AccordionItem value="home">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Home Safety</AccordionTrigger>
+                        <AccordionContent>
+                            <TipsList items={homeSafetyTips} />
+                        </AccordionContent>
+                    </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Precautions</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.precautions.map((tip, idx) => (
-                                <li key={`fire-pre-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <AccordionItem value="child">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Child Safety</AccordionTrigger>
+                        <AccordionContent>
+                            <TipsList items={childSafetyTips} />
+                        </AccordionContent>
+                    </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Flammable Items</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.flammableItems.map((tip, idx) => (
-                                <li key={`fire-flam-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <AccordionItem value="earthquake">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Earthquake Safety</AccordionTrigger>
+                        <AccordionContent className="space-y-6">
+                            {/* Nested accordion for sub-sections */}
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="eq-pre">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Precautions</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={earthquakeTips.precautions} />
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="eq-during">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">During Earthquake</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={earthquakeTips.during} />
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="eq-post">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Post Earthquake</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={earthquakeTips.post} />
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </AccordionContent>
+                    </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Heating Sources</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.heatingSources.map((tip, idx) => (
-                                <li key={`fire-heat-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    <AccordionItem value="fire">
+                        <AccordionTrigger className="text-2xl font-semibold text-[#8B0000]">Fire Hazard Safety</AccordionTrigger>
+                        <AccordionContent className="space-y-6">
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="fire-pre">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Precautions</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.precautions} />
+                                    </AccordionContent>
+                                </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Matches and Smoking</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.matchesSmoking.map((tip, idx) => (
-                                <li key={`fire-smk-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                                <AccordionItem value="fire-flam">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Flammable Items</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.flammableItems} />
+                                    </AccordionContent>
+                                </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">Electrical Wiring</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.electricalWiring.map((tip, idx) => (
-                                <li key={`fire-elec-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                                <AccordionItem value="fire-heat">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Heating Sources</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.heatingSources} />
+                                    </AccordionContent>
+                                </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">During Fire</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.during.map((tip, idx) => (
-                                <li key={`fire-during-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                                <AccordionItem value="fire-smk">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Matches and Smoking</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.matchesSmoking} />
+                                    </AccordionContent>
+                                </AccordionItem>
 
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-semibold text-[#556B2F]">After Fire</h3>
-                        <ul className="space-y-4">
-                            {fireHazardTips.after.map((tip, idx) => (
-                                <li key={`fire-after-${idx}`} className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1 w-6 h-6 border-2 border-[#8B0000] rounded-sm bg-white flex items-center justify-center">
-                                        <CheckIcon className="w-4 h-4 text-[#8B0000]" />
-                                    </div>
-                                    <p className="flex-1 text-[#556B2F] text-justify leading-relaxed">{tip}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </section>
+                                <AccordionItem value="fire-elec">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">Electrical Wiring</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.electricalWiring} />
+                                    </AccordionContent>
+                                </AccordionItem>
+
+                                <AccordionItem value="fire-during">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">During Fire</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.during} />
+                                    </AccordionContent>
+                                </AccordionItem>
+
+                                <AccordionItem value="fire-after">
+                                    <AccordionTrigger className="text-xl text-[#556B2F]">After Fire</AccordionTrigger>
+                                    <AccordionContent>
+                                        <TipsList items={fireHazardTips.after} />
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
             </main>
 
             <SiteFooter />
         </>
-    );
+    )
 }

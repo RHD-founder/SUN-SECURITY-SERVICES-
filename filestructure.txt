@@ -22,6 +22,10 @@
         |-- page.tsx
     |-- globals.css
     |-- layout.tsx
+    |-- notices
+        |-- page.tsx
+        |-- [id]
+            |-- page.tsx
     |-- page.tsx
     |-- security-tips
         |-- page.tsx
@@ -104,6 +108,7 @@
 |-- lib
     |-- actions
     |-- content.ts
+    |-- notices.ts
     |-- utils.ts
 |-- middleware.ts
 |-- next-env.d.ts

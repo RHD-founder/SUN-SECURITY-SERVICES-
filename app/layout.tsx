@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 
+
 // Optimized font variables using system fonts for better performance
 const fontVariables = {
   "--font-bebas": "Impact, 'Arial Black', sans-serif",
@@ -140,6 +141,7 @@ html {
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
+        
       </body>
     </html>
   )

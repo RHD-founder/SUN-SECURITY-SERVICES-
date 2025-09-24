@@ -16,6 +16,7 @@ const nav = [
   { href: "/gallery", label: "Gallery" },
   { href: "/certificates", label: "Certificates" },
   { href: "/security-tips", label: "Security Tips" },
+  { href: "/notices", label: "Notices" },
 ];
 
 export default function SiteHeader() {
@@ -51,6 +52,7 @@ export default function SiteHeader() {
           Get Estimate
         </Link>
       </div>
+      
 
       <div className={`flex items-center h-20 px-4 lg:px-8 transition-colors ${scrolled ? "bg-white/95 backdrop-blur border-b shadow-sm" : "bg-white"}`}>
         <Link href="/" className="flex items-center gap-3 lg:gap-4">
