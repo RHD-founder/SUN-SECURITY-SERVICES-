@@ -10,8 +10,9 @@
         |-- certificates
         |-- contact
             |-- route.ts
-        |-- visitors
-            |-- route.ts
+        |-- ga
+            |-- realtime
+                |-- route.ts
     |-- certificates
         |-- page.tsx
     |-- clients
@@ -27,12 +28,14 @@
         |-- [id]
             |-- page.tsx
     |-- page.tsx
+    |-- robots.tsx
     |-- security-tips
         |-- page.tsx
     |-- services
         |-- page.tsx
         |-- [slug]
             |-- page.tsx
+    |-- sitemap.tsx
     |-- _components
         |-- page-transition.tsx
 |-- components

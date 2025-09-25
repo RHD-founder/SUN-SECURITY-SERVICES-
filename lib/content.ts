@@ -12,7 +12,7 @@ export const BRAND = {
   fullName:
     "SUN SECURITY SERVICES™ (An ISO 9001:2015 Certified Ex-Servicemen Enterprise)",
   tagline:
-    "North East India's Pioneer Security Organization with almost two Decades of Excellence",
+    "North East India's Pioneer Security Organization with almost 25⁺ Years of Experience",
   description:
     "Govt. Approved security consultants with comprehensive range of services",
   phone: "8486026829",
@@ -189,7 +189,6 @@ export const awards = [
     proof: "#",
     category: "membership",
   },
-  
 ];
 
 export const clients = [
@@ -277,20 +276,17 @@ export const testimonials = [
     role: "Facility Manager, NorthEast Bank",
     rating: 5,
     text: "Professional, punctual, and proactive. SUN SECURITY delivers consistently excellent protection for our branches.",
-    
   },
   {
     name: "Priya Das",
     role: "Operations Head, Assam Mall",
     rating: 5,
     text: "Their event security team handled a festival rush flawlessly. Exceptional crowd management and safety.",
-    
   },
   {
     name: "Rakesh Singh",
     role: "Society President",
     rating: 4,
     text: "Reliable guards and swift response. Our residents feel safe and supported around the clock.",
-  
   },
 ];

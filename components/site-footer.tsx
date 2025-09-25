@@ -13,7 +13,7 @@ export default function SiteFooter({ visitorCount = 0 }: { visitorCount?: number
             </div>
             <p className="text-[#556B2F] mt-3 font-system-ui leading-relaxed">
               ISO 9001:2015 Certified Ex-Servicemen Enterprise. North East India's pioneer security organization with
-              almost two decades of excellence.
+              almost 25⁺ Years of Experience.
             </p>
             <p className="text-sm text-[#556B2F]/80 mt-3 font-system-ui">Govt. Approved Security Consultants</p>
           </div>

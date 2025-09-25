@@ -3,6 +3,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+import Script from "next/script"
 
 
 // Optimized font variables using system fonts for better performance
@@ -19,7 +20,7 @@ const fontVariables = {
 export const metadata: Metadata = {
   title: "SUN SECURITY SERVICES™ | ISO 9001:2015 Certified Security Company in Guwahati",
   description:
-    "North East India's Pioneer Security Organization with almost two decades of excellence. ISO 9001:2015 certified ex-servicemen enterprise providing comprehensive security solutions in Guwahati and across Northeast India.",
+    "North East India's Pioneer Security Organization with almost 25⁺ Years of Experience. ISO 9001:2015 certified ex-servicemen enterprise providing comprehensive security solutions in Guwahati and across Northeast India.",
   keywords: [
     "Security Services Guwahati",
     "Security Guards Assam",
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SUN SECURITY SERVICES™",
     description:
-      "North East India's Pioneer Security Organization. ISO 9001:2015 certified ex-servicemen enterprise with almost two decades of excellence.",
+      "North East India's Pioneer Security Organization. ISO 9001:2015 certified ex-servicemen enterprise with almost 25⁺ Years of Experience.",
     url: "https://www.sunsecurityservices.org",
     siteName: "SUN SECURITY SERVICES™",
     images: [
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SUN SECURITY SERVICES™",
-    description: "North East India's Pioneer Security Organization with almost two decades of excellence.",
+    description: "North East India's Pioneer Security Organization with almost 25⁺ Years of Experience.",
     images: ["/sun-security-logo.png"],
   },
   metadataBase: new URL("https://www.sunsecurityservices.org"),
@@ -69,7 +70,7 @@ export default function RootLayout({
     url: "https://www.sunsecurityservices.org",
     logo: "/sun-security-logo.png",
     description:
-      "North East India's Pioneer Security Organization with almost two decades of excellence. Govt. Approved security consultants with comprehensive range of services.",
+      "North East India's Pioneer Security Organization with almost 25⁺ Years of Experience. Govt. Approved security consultants with comprehensive range of services.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "House No. 211, 1st Floor, R. G. Baruah Road",
@@ -104,6 +105,15 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap"
           as="style"
         />
+        <Script async strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} />
+        <Script id="ga4-init" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { page_path: window.location.pathname });
+  `
+        }} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -141,7 +151,7 @@ html {
       >
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
-        
+
       </body>
     </html>
   )

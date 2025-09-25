@@ -85,6 +85,7 @@
 // export default nextConfig;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ["192.168.1.2", "*.local"],
   // 1) Keep experimental flags that are still experimental
   experimental: {
     // Leave this here (it’s still configured under experimental)
@@ -142,17 +143,23 @@ const nextConfig = {
     },
     {
       source: "/api/(.*)",
-      headers: [{ key: "Cache-Control", value: "public, max-age=300, s-maxage=300" }],
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=300, s-maxage=300" },
+      ],
     },
     {
       source: "/_next/static/(.*)",
-      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+      ],
     },
     {
       source: "/(.*\\.(?:jpg|jpeg|gif|png|svg|ico|webp|avif))",
-      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+      ],
     },
   ],
-}
+};
 
 export default nextConfig
