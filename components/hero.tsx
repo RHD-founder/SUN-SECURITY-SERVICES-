@@ -37,7 +37,7 @@ const heroSlides = [
     subtitle:
       "25⁺ Years of Experience trusted security services with trained professionals delivering superior protection across Northeast India.",
     alt: "Security personnel marching in formation in front of modern building",
-    features: ["Two Decades Experience", "Trained Professionals", "Northeast Coverage"],
+    features: ["25⁺ Years of ExperienceExperience", "Trained Professionals", "Northeast Coverage"],
   },
   {
     image: "/IMG-20201127-WA0009.jpg",
